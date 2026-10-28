@@ -57,10 +57,25 @@
   </header>
 
   <main id="top">
-    <!-- HERO: Intro on Left + Compact Framed Artwork on Right (v1 Layout) -->
+    <!-- HERO: Left Intro + Seamless Right Background Portrait (No Box, No Overlap) -->
     <section class="hero-stage">
+      <!-- Right-side Seamless Background Artwork + Faint Architectural Compass Arcs -->
+      <div class="hero-bg-art" aria-hidden="true">
+        <img
+          src="assets/davinci-portrait.jpg"
+          alt=""
+          class="hero-bg-painting"
+        />
+        <svg class="hero-compass-lines" viewBox="0 0 1200 900" fill="none">
+          <circle cx="880" cy="420" r="360" stroke="currentColor" stroke-width="0.6" />
+          <circle cx="880" cy="420" r="540" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 6" />
+          <line x1="880" y1="0" x2="880" y2="900" stroke="currentColor" stroke-width="0.5" />
+          <line x1="340" y1="420" x2="1200" y2="420" stroke="currentColor" stroke-width="0.5" />
+        </svg>
+      </div>
+
       <div class="container hero-split">
-        <!-- Left Column: Personal Intro -->
+        <!-- Left Column: Personal Intro (Never overlaps the portrait on the right) -->
         <div class="hero-left">
           <p class="hero-kicker">DOER · MARKETER · NEWBIE BUILDER</p>
           <h1 class="hero-display">
@@ -106,23 +121,8 @@
           </div>
         </div>
 
-        <!-- Right Column: Compact V1 Artwork Frame -->
-        <div class="hero-right">
-          <figure class="art-frame-v1">
-            <div class="art-canvas-v1">
-              <img
-                src="assets/renaissance-hero.png"
-                alt="Classical Renaissance marble sculpture integrated with Leonardo da Vinci golden ratio geometry"
-                class="stage-painting"
-              />
-              <div class="winter-blueprint-grid" aria-hidden="true"></div>
-            </div>
-            <figcaption class="art-caption-v1">
-              <span>[CRAFT → SYSTEMS]</span>
-              <span id="season-readout">SPRING // RENAISSANCE LIGHT</span>
-            </figcaption>
-          </figure>
-        </div>
+        <!-- Right Column: Empty spacer so the background portrait breathes unobstructed -->
+        <div class="hero-right-spacer" aria-hidden="true"></div>
       </div>
     </section>
 
