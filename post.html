@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="winter">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Writing | AiPRIL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="index.html" class="brand" aria-label="AiPRIL Home">
+        <span class="brand-ai">Ai</span><span class="brand-pril">PRIL</span>
+      </a>
+
+      <nav class="chapter-nav" aria-label="Main Navigation">
+        <a href="index.html#writing"><span class="mono-idx">←</span> All Writing</a>
+        <a href="index.html#craft"><span class="mono-idx">01</span> The Craft</a>
+        <a href="index.html#lab"><span class="mono-idx">02</span> The Lab</a>
+        <a href="index.html#human"><span class="mono-idx">03</span> The Human</a>
+      </nav>
+
+      <button id="theme-toggle" class="season-switch" type="button" aria-label="Switch between Winter and Spring mode">
+        <span class="season-opt" data-season="winter">Winter</span>
+        <span class="season-sep">/</span>
+        <span class="season-opt" data-season="spring">Spring</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="article-main">
+    <article class="container article-container">
+      <div class="article-meta-bar">
+        <span id="post-category" class="mono-tag">WRITING</span>
+        <span class="meta-dot">·</span>
+        <time id="post-date" class="mono-date"></time>
+        <span class="meta-dot">·</span>
+        <span id="post-readtime" class="mono-date"></span>
+      </div>
+
+      <h1 id="post-title" class="article-title">Loading...</h1>
+      <p id="post-summary" class="article-lead"></p>
+
+      <div id="post-body" class="article-prose"></div>
+
+      <div class="article-footer-nav">
+        <a href="index.html#writing" class="btn btn-ghost">← Back to Writing</a>
+        <a href="studio.html" id="edit-post-link" class="btn btn-ghost">Edit in Studio ✎</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bar">
+      <span><strong>AiPRIL</strong></span>
+      <a href="index.html" class="back-top">Home ↑</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Simple, zero-dependency Markdown parser for clean blog posts
+    function renderMarkdown(md) {
+      let html = md
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+      // Code blocks ```...```
+      html = html.replace(/```(\w*)\n([\s\S]*?)```/g, function (_, lang, code) {
+        return '<pre class="prose-code"><code>' + code.trim() + "</code></pre>";
+      });
+
+      const lines = html.split("\n");
+      const out = [];
+      let inList = false;
+      let listType = "ul";
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+
+        if (!line) {
+          if (inList) {
+            out.push("</" + listType + ">");
+            inList = false;
+          }
+          continue;
+        }
+
+        if (line.startsWith('<pre class="prose-code">')) {
+          if (inList) {
+            out.push("</" + listType + ">");
+            inList = false;
+          }
+          out.push(line);
+          continue;
+        }
+
+        if (line.startsWith("### ")) {
+          if (inList) { out.push("</" + listType + ">"); inList = false; }
+          out.push("<h3>" + formatInline(line.slice(4)) + "</h3>");
+        } else if (line.startsWith("## ")) {
+          if (inList) { out.push("</" + listType + ">"); inList = false; }
+          out.push("<h2>" + formatInline(line.slice(3)) + "</h2>");
+        } else if (line.startsWith("- ")) {
+          if (!inList || listType !== "ul") {
+            if (inList) out.push("</" + listType + ">");
+            out.push("<ul>");
+            inList = true;
+            listType = "ul";
+          }
+          out.push("<li>" + formatInline(line.slice(2)) + "</li>");
+        } else if (/^\d+\.\s+/.test(line)) {
+          if (!inList || listType !== "ol") {
+            if (inList) out.push("</" + listType + ">");
+            out.push("<ol>");
+            inList = true;
+            listType = "ol";
+          }
+          out.push("<li>" + formatInline(line.replace(/^\d+\.\s+/, "")) + "</li>");
+        } else if (line.startsWith("&gt; ")) {
+          if (inList) { out.push("</" + listType + ">"); inList = false; }
+          out.push("<blockquote>" + formatInline(line.slice(5)) + "</blockquote>");
+        } else {
+          if (inList) { out.push("</" + listType + ">"); inList = false; }
+          out.push("<p>" + formatInline(line) + "</p>");
+        }
+      }
+      if (inList) out.push("</" + listType + ">");
+      return out.join("\n");
+    }
+
+    function formatInline(text) {
+      return text
+        .replace(/`([^`]+)`/g, "<code>$1</code>")
+        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+        .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    }
+
+    async function loadArticle() {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get("slug");
+      if (!slug) {
+        document.getElementById("post-title").textContent = "Post not found";
+        return;
+      }
+
+      try {
+        const [indexRes, mdRes] = await Promise.all([
+          fetch("posts/index.json?t=" + Date.now()),
+          fetch("posts/" + encodeURIComponent(slug) + ".md?t=" + Date.now())
+        ]);
+
+        const posts = await indexRes.json();
+        const meta = posts.find((p) => p.slug === slug);
+        const md = await mdRes.text();
+
+        if (meta) {
+          document.title = meta.title + " | AiPRIL";
+          document.getElementById("post-title").textContent = meta.title;
+          document.getElementById("post-category").textContent = meta.category.toUpperCase();
+          document.getElementById("post-date").textContent = meta.date;
+          document.getElementById("post-readtime").textContent = meta.readTime || "3 min read";
+          document.getElementById("post-summary").textContent = meta.summary || "";
+          document.getElementById("edit-post-link").href = "studio.html?edit=" + encodeURIComponent(slug);
+        }
+
+        document.getElementById("post-body").innerHTML = renderMarkdown(md);
+      } catch (err) {
+        document.getElementById("post-title").textContent = "Could not load article.";
+      }
+    }
+
+    loadArticle();
+  </script>
+</body>
+</html>
