@@ -1,5 +1,5 @@
 ---
-status: verified
+status: shipped
 ---
 
 # Personal Website v1 — April Hanh: The RenAIssance Builder (Human × Robotic)
