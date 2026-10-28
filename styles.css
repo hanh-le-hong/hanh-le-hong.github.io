@@ -297,8 +297,8 @@ a {
 }
 
 .code-card-sql {
-  top: 3%;
-  left: 11%;
+  top: 15%;
+  left: 24%;
 }
 
 .code-card-hello {
@@ -324,7 +324,7 @@ a {
 }
 
 .hero-left {
-  max-width: 680px;
+  max-width: 600px;
 }
 
 .hero-kicker {
