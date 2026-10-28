@@ -57,50 +57,51 @@
   </header>
 
   <main id="top">
-    <!-- HERO: Full-Bleed Background Portrait + Left Intro Overlapping Part of the Art -->
+    <!-- HERO: Balanced Centered Container with Left Intro + Right Portrait Background -->
     <section class="hero-stage">
-      <!-- Seamless Full-Bleed Background Artwork (Spring & Winter Editions) + Logic/Code Overlays -->
-      <div class="hero-bg-art" aria-hidden="true">
-        <img
-          src="assets/davinci-spring.jpg"
-          alt=""
-          class="hero-bg-painting painting-spring"
-        />
-        <img
-          src="assets/davinci-portrait.jpg"
-          alt=""
-          class="hero-bg-painting painting-winter"
-        />
+      <div class="container hero-stage-inner">
+        <!-- Seamless Background Artwork inside balanced container + Logic/Code Overlays -->
+        <div class="hero-bg-art" aria-hidden="true">
+          <img
+            src="assets/davinci-spring.jpg"
+            alt=""
+            class="hero-bg-painting painting-spring"
+          />
+          <img
+            src="assets/davinci-portrait.jpg"
+            alt=""
+            class="hero-bg-painting painting-winter"
+          />
 
-        <!-- Minimal Logic + Art Code Snippets on the Portrait Stage -->
-        <div class="art-code-layer">
-          <div class="code-card code-card-sql">
-            <div class="code-card-head">
-              <span class="code-dot"></span>
-              <span>query.sql</span>
-            </div>
-            <pre><code><span class="c-kw">SELECT</span> craft, systems, impact
+          <!-- Minimal Logic + Art Code Snippets on the Portrait Stage -->
+          <div class="art-code-layer">
+            <div class="code-card code-card-sql">
+              <div class="code-card-head">
+                <span class="code-dot"></span>
+                <span>query.sql</span>
+              </div>
+              <pre><code><span class="c-kw">SELECT</span> craft, systems, impact
 <span class="c-kw">FROM</span> april.journey
 <span class="c-kw">WHERE</span> mode = <span class="c-str">'winter'</span>
   <span class="c-kw">AND</span> ratio = <span class="c-str">'90-9-1'</span>;</code></pre>
-          </div>
-
-          <div class="code-card code-card-hello">
-            <div class="code-card-head">
-              <span class="code-dot"></span>
-              <span>hello_world.py</span>
             </div>
-            <pre><code><span class="c-cm"># from consuming → building</span>
-<span class="c-kw">print</span>(<span class="c-str">"Hello, World."</span>)</code></pre>
-          </div>
 
-          <div class="art-coord-tag">
-            <span>+ [LOGIC × ART // 90·09·01]</span>
+            <div class="code-card code-card-hello">
+              <div class="code-card-head">
+                <span class="code-dot"></span>
+                <span>hello_world.py</span>
+              </div>
+              <pre><code><span class="c-cm"># from consuming → building</span>
+<span class="c-kw">print</span>(<span class="c-str">"Hello, World."</span>)</code></pre>
+            </div>
+
+            <div class="art-coord-tag">
+              <span>+ [LOGIC × ART // 90·09·01]</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="container hero-split">
+        <div class="hero-split">
         <!-- Left Column: Personal Intro (Never overlaps the portrait on the right) -->
         <div class="hero-left">
           <p class="hero-kicker">DOER · MARKETER · NEWBIE BUILDER</p>
@@ -149,6 +150,7 @@
 
         <!-- Right Column: Empty spacer so the background portrait breathes unobstructed -->
         <div class="hero-right-spacer" aria-hidden="true"></div>
+      </div>
       </div>
     </section>
 
