@@ -256,22 +256,40 @@ a {
 }
 
 .hero-bio-card {
-  position: relative;
-  margin-top: -5rem;
-  margin-left: auto;
-  margin-right: 2rem;
-  max-width: 580px;
-  background: var(--card-overlay);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--line-strong);
-  padding: 1.65rem 1.9rem;
-  z-index: 2;
+  display: none;
 }
 
-.bio-text {
-  font-size: 1.05rem;
+/* Personal Essay / Intro (Chip Huyen Inspired Editorial Column) */
+.intro-essay {
+  max-width: 720px;
+  margin-top: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  font-size: 1.06rem;
+  line-height: 1.72;
   color: var(--fg);
-  margin-bottom: 1.35rem;
+}
+
+.intro-essay .lead-paragraph {
+  font-size: 1.18rem;
+  line-height: 1.65;
+}
+
+.intro-essay a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  decoration-thickness: 1px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.intro-essay a:hover {
+  opacity: 0.8;
+}
+
+.intro-essay .hero-actions {
+  margin-top: 0.75rem;
 }
 
 .hero-actions {
