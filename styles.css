@@ -1,0 +1,720 @@
+/* ==========================================================================
+   APRIL HANH — THE RENAISSANCE BUILDER (HUMAN × ROBOTIC)
+   Design Principles: Simple, Logical, Bold Typography, Art as Hero Focal Point
+   ========================================================================== */
+
+:root,
+[data-theme="renaissance"] {
+  --bg: #f6f3ec;
+  --bg-elevated: #efeae0;
+  --fg: #141413;
+  --muted: #57544e;
+  --line: rgba(20, 20, 19, 0.14);
+  --line-strong: rgba(20, 20, 19, 0.32);
+  --accent: #943222;
+  --accent-soft: rgba(148, 50, 34, 0.09);
+  --art-frame-bg: #181615;
+  --art-frame-fg: #f3efe6;
+  --shadow: 0 20px 50px rgba(20, 20, 19, 0.08);
+}
+
+[data-theme="robotic"] {
+  --bg: #0b0c0e;
+  --bg-elevated: #121418;
+  --fg: #ece8df;
+  --muted: #98968f;
+  --line: rgba(236, 232, 223, 0.13);
+  --line-strong: rgba(236, 232, 223, 0.32);
+  --accent: #d4af37;
+  --accent-soft: rgba(212, 175, 55, 0.12);
+  --art-frame-bg: #121418;
+  --art-frame-fg: #ece8df;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.28s ease, color 0.28s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.brand-serif {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.brand-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--line-strong);
+  color: var(--muted);
+}
+
+.chapter-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.chapter-nav a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.chapter-nav a:hover {
+  color: var(--fg);
+}
+
+.mono-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-right: 0.25rem;
+}
+
+.mode-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--bg-elevated);
+  color: var(--fg);
+  border: 1px solid var(--line-strong);
+  padding: 0.45rem 0.85rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.mode-switch:hover {
+  border-color: var(--accent);
+}
+
+.mode-option {
+  opacity: 0.45;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="renaissance"] .mode-option[data-mode-label="renaissance"],
+[data-theme="robotic"] .mode-option[data-mode-label="robotic"] {
+  opacity: 1;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   HERO SECTION: BOLD TYPOGRAPHY + ART FOCAL POINT
+   ========================================================================== */
+
+.hero-section {
+  padding: 5rem 0 5.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.hero-title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(3.4rem, 6.2vw, 5.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.75rem;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-lead {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 56ch;
+  margin-bottom: 2.25rem;
+}
+
+.hero-lead strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--fg);
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--fg);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--fg);
+  border-color: var(--line-strong);
+}
+
+.btn-outline:hover {
+  border-color: var(--fg);
+  background-color: var(--bg-elevated);
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.hero-metrics dt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.hero-metrics dd {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Art Centerpiece Frame */
+.hero-art-frame {
+  border: 1px solid var(--line-strong);
+  background-color: var(--bg-elevated);
+  color: var(--fg);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.art-canvas {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.hero-artwork {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+[data-theme="robotic"] .hero-artwork {
+  filter: contrast(1.08) brightness(0.92);
+}
+
+.hero-art-frame:hover .hero-artwork {
+  transform: scale(1.02);
+}
+
+.art-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.85rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   CHAPTER SECTIONS (SHARED ARCHITECTURAL LAYOUT)
+   ========================================================================== */
+
+.chapter-section {
+  padding: 5.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.chapter-header {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  align-items: baseline;
+  margin-bottom: 3.5rem;
+}
+
+.chapter-index {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.chapter-title {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  margin-bottom: 0.6rem;
+}
+
+.chapter-subtitle {
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 58ch;
+}
+
+/* ==========================================================================
+   CHAPTER I: THE CRAFT (4 PILLARS + IMPACT)
+   ========================================================================== */
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line-strong);
+  margin-bottom: 3.5rem;
+}
+
+.pillar-card {
+  padding: 2.25rem;
+  border-right: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.2s ease;
+}
+
+.pillar-card:hover {
+  background-color: var(--bg-elevated);
+}
+
+.pillar-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.pillar-card h3 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.pillar-card p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-list li {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--line);
+  color: var(--fg);
+}
+
+/* Selected Impact Table */
+.sub-header {
+  margin-bottom: 1rem;
+}
+
+.mono-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.impact-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.impact-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 180px;
+  gap: 2rem;
+  align-items: baseline;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.impact-domain {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+.impact-main h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.impact-main p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.impact-outcome {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  text-align: right;
+  color: var(--fg);
+}
+
+/* ==========================================================================
+   CHAPTER II: LAB 04
+   ========================================================================== */
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.lab-card {
+  border: 1px solid var(--line-strong);
+  padding: 2.25rem;
+  background-color: var(--bg-elevated);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lab-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+}
+
+.lab-badge {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.lab-type {
+  color: var(--muted);
+}
+
+.lab-card h3 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.lab-card p {
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.lab-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.lab-status {
+  color: var(--fg);
+}
+
+/* ==========================================================================
+   CHAPTER III: BEYOND THE TERMINAL (THE HUMAN SIDE)
+   ========================================================================== */
+
+.human-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.human-card {
+  border: 1px solid var(--line);
+  padding: 1.85rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.human-card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+}
+
+.human-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.human-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+.human-icon {
+  font-size: 1.1rem;
+  opacity: 0.75;
+}
+
+.human-card h3 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.human-card p {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+/* ==========================================================================
+   CHAPTER IV: CONNECT (3 DOORS)
+   ========================================================================== */
+
+.connect-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.connect-card {
+  border: 1px solid var(--line-strong);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.connect-card h3 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.95rem;
+  margin: 0.85rem 0 0.75rem;
+}
+
+.connect-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.connect-link {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.connect-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.site-footer {
+  padding: 2.5rem 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-meta {
+  display: flex;
+  gap: 0.75rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 980px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-art-frame {
+    max-width: 480px;
+  }
+
+  .chapter-header {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .pillars-grid,
+  .lab-grid,
+  .connect-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .human-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .impact-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .impact-outcome {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .chapter-nav {
+    display: none;
+  }
+
+  .human-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section,
+  .chapter-section {
+    padding: 3.5rem 0;
+  }
+}

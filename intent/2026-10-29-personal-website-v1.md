@@ -1,8 +1,8 @@
 ---
-status: approved
+status: verified
 ---
 
-# Personal Website v1 — AiPRIL: The RenAIssance Builder (Human × Robotic)
+# Personal Website v1 — April Hanh: The RenAIssance Builder (Human × Robotic)
 
 ## Problem
 Cần một website cá nhân bằng tiếng Anh vừa là nơi **"bán mình"** (với nhà tuyển dụng, khách hàng tiềm năng, đối tác, cộng đồng), vừa là dự án đầu tay để thực hành quy trình tự build sản phẩm từ con số 0. Website phải thể hiện được cả hai mặt: năng lực chuyên môn sắc bén (Marketing Management, Product, Growth, Business, Technology) và chiều sâu con người ngoài công việc (Âm nhạc, Thể thao, Du lịch, Suy nghĩ), nhưng tuyệt đối **đơn giản, logic, bold, lấy Art làm điểm nhấn chính và không gây rối mắt (no overwhelm)**.
@@ -33,4 +33,4 @@ Một trang web cá nhân (Homepage v1) hoàn chỉnh, tốc độ tải tức t
 - Chưa làm đa ngôn ngữ (chỉ tập trung Tiếng Anh chuẩn chỉnh ở v1).
 
 ## Open Questions
-*(None — Brand & Display Name locked as **`AiPRIL`**, combining `Ai` [Haibara Ai / Artificial Intelligence] + `APRIL` [Month 04 / Human & Spring]. Ready for Plan & Build.)*
+*(None — Brand & Display Name locked as **`April Hanh`**, combining `April` [Month 04 / English Name] + `Hanh` [Real Identity] for optimal SEO & Personal Branding, with `Lab 04 / AI` as the subtle nod to Haibara Ai & AI.)*
