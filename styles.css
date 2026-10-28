@@ -202,7 +202,6 @@ a {
 /* Stage Composition: Wide Painting + Overlapping Bio Card */
 .stage-composition {
   position: relative;
-  margin-bottom: 2.5rem;
 }
 
 .art-stage {
@@ -212,7 +211,7 @@ a {
   max-height: 600px;
   overflow: hidden;
   border: 1px solid var(--line-strong);
-  background: #101518;
+  background: #e9e2d2;
 }
 
 .stage-painting {
@@ -225,7 +224,7 @@ a {
 }
 
 [data-theme="winter"] .stage-painting {
-  filter: contrast(1.18) brightness(0.68) saturate(0.65) hue-rotate(-10deg);
+  filter: invert(0.92) hue-rotate(180deg) contrast(1.12) brightness(0.88);
 }
 
 .winter-blueprint-grid {
@@ -426,7 +425,7 @@ a {
 
 .lab-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
 }
 
