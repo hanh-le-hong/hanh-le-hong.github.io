@@ -230,8 +230,8 @@ a {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 46%;
-  max-width: 580px;
+  width: 64%;
+  max-width: 860px;
   pointer-events: none;
   z-index: 2;
 }
@@ -293,19 +293,19 @@ a {
 }
 
 .code-card-sql {
-  top: 12%;
+  top: 18%;
   left: 4%;
 }
 
 .code-card-hello {
   bottom: 14%;
-  right: 8%;
+  right: 5%;
 }
 
 .art-coord-tag {
   position: absolute;
   top: 6%;
-  right: 8%;
+  right: 5%;
   font-family: "JetBrains Mono", monospace;
   font-size: 0.65rem;
   letter-spacing: 0.1em;
