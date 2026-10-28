@@ -158,81 +158,80 @@ a {
 }
 
 /* ==========================================================================
-   HERO: LEFT INTRO + SEAMLESS RIGHT BACKGROUND PORTRAIT (NO BOX, NO OVERLAP)
+   HERO: FULL-BLEED BACKGROUND ARTWORK + OVERLAPPING INTRO (NO SPLIT LINE)
    ========================================================================== */
 
 .hero-stage {
   position: relative;
   overflow: hidden;
-  padding: 4.5rem 0 5rem;
+  padding: 5rem 0 5.5rem;
   border-bottom: 1px solid var(--line);
 }
 
-/* Right-side Seamless Background Artwork */
+/* Seamless Background Artwork (Zero vertical line) */
 .hero-bg-art {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 50%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
 }
 
 .hero-bg-painting {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 72%;
   height: 100%;
   object-fit: cover;
-  object-position: 88% top;
-  transform: scale(1.03);
+  object-position: 85% center;
+  transform: scale(1.04);
   display: block;
-  /* Seamless fade into the page background on the left */
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.45) 16%,
-    rgba(0, 0, 0, 0.92) 34%,
-    rgba(0, 0, 0, 1) 48%
+  /* Radial elliptical mask: completely eliminates any vertical dividing line */
+  -webkit-mask-image: radial-gradient(
+    ellipse 58% 82% at 76% 50%,
+    rgba(0, 0, 0, 1) 32%,
+    rgba(0, 0, 0, 0.65) 58%,
+    rgba(0, 0, 0, 0.18) 78%,
+    transparent 96%
   );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.45) 16%,
-    rgba(0, 0, 0, 0.92) 34%,
-    rgba(0, 0, 0, 1) 48%
+  mask-image: radial-gradient(
+    ellipse 58% 82% at 76% 50%,
+    rgba(0, 0, 0, 1) 32%,
+    rgba(0, 0, 0, 0.65) 58%,
+    rgba(0, 0, 0, 0.18) 78%,
+    transparent 96%
   );
-  transition: filter 0.4s ease, opacity 0.4s ease;
+  transition: opacity 0.45s ease;
 }
 
-[data-theme="spring"] .hero-bg-painting {
-  filter: brightness(1.04) contrast(1.02);
+.painting-spring {
+  opacity: 1;
 }
 
-[data-theme="winter"] .hero-bg-painting {
-  filter: brightness(0.86) contrast(1.12);
+.painting-winter {
+  opacity: 0;
 }
 
-.hero-compass-lines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--fg);
-  opacity: 0.14;
+[data-theme="winter"] .painting-spring {
+  opacity: 0;
+}
+
+[data-theme="winter"] .painting-winter {
+  opacity: 1;
 }
 
 .hero-split {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 3rem;
-  align-items: center;
+  display: block;
 }
 
 .hero-left {
-  padding-right: 1.5rem;
+  max-width: 760px;
 }
 
 .hero-kicker {
@@ -289,7 +288,7 @@ a {
 }
 
 .hero-right-spacer {
-  min-height: 520px;
+  display: none;
 }
 
 .hero-actions {
