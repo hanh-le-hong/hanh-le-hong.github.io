@@ -4,18 +4,6 @@
    ========================================================================== */
 
 :root,
-[data-theme="spring"] {
-  --bg: #ffffff;
-  --bg-soft: #f7f8f5;
-  --fg: #111312;
-  --muted: #5a605d;
-  --line: #e4e7e2;
-  --line-strong: #111312;
-  --accent: #1d6b48;
-  --card-overlay: rgba(255, 255, 255, 0.94);
-  --grid-overlay: 0;
-}
-
 [data-theme="winter"] {
   --bg: #090b0f;
   --bg-soft: #11141c;
@@ -26,6 +14,18 @@
   --accent: #7cc4fa;
   --card-overlay: rgba(13, 16, 23, 0.94);
   --grid-overlay: 1;
+}
+
+[data-theme="spring"] {
+  --bg: #ffffff;
+  --bg-soft: #f7f8f5;
+  --fg: #111312;
+  --muted: #5a605d;
+  --line: #e4e7e2;
+  --line-strong: #111312;
+  --accent: #1d6b48;
+  --card-overlay: rgba(255, 255, 255, 0.94);
+  --grid-overlay: 0;
 }
 
 *,
@@ -208,19 +208,19 @@ a {
   transition: opacity 0.45s ease;
 }
 
-.painting-spring {
+.painting-winter {
   opacity: 1;
 }
 
-.painting-winter {
+.painting-spring {
   opacity: 0;
 }
 
-[data-theme="winter"] .painting-spring {
+[data-theme="spring"] .painting-winter {
   opacity: 0;
 }
 
-[data-theme="winter"] .painting-winter {
+[data-theme="spring"] .painting-spring {
   opacity: 1;
 }
 
