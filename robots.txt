@@ -1,5 +1,37 @@
+# Search & AI Search Citability Crawlers
+User-agent: Googlebot
+Allow: /
+Disallow: /studio.html
+Disallow: /post.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /studio.html
+Disallow: /post.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /studio.html
+Disallow: /post.html
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /studio.html
+Disallow: /post.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /studio.html
+Disallow: /post.html
+
+User-agent: Applebot
+Allow: /
+Disallow: /studio.html
+Disallow: /post.html
+
 User-agent: *
 Allow: /
 Disallow: /studio.html
+Disallow: /post.html
 
 Sitemap: https://iced-latte.com/sitemap.xml

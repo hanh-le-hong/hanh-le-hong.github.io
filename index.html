@@ -7,11 +7,15 @@
   <meta name="description" content="I'm April (Hạnh in Vietnamese), a doer and a marketer. Born in Spring, chasing Winter: moving from marketing craft into systems, logic, and technology." />
   <meta name="author" content="April (AiPRIL)" />
   <link rel="canonical" href="https://iced-latte.com/" />
+  <link rel="alternate" type="application/rss+xml" title="AiPRIL RSS Feed" href="https://iced-latte.com/rss.xml" />
   <meta property="og:title" content="AiPRIL | Born in Spring. Chasing Winter." />
   <meta property="og:description" content="Doer, marketer, and newbie builder solving business problems through marketing, product, and analysis." />
   <meta property="og:url" content="https://iced-latte.com/" />
   <meta property="og:site_name" content="AiPRIL" />
   <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="AiPRIL | Born in Spring. Chasing Winter." />
+  <meta name="twitter:description" content="Doer, marketer, and newbie builder solving business problems through marketing, product, and analysis." />
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,20 +24,36 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Schema.org Person JSON-LD -->
+  <!-- Schema.org Person & WebSite JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "April",
-    "alternateName": ["AiPRIL", "Hanh", "Hanh Le", "Le Hong Hanh"],
-    "jobTitle": "Marketer & Builder",
-    "url": "https://iced-latte.com/",
-    "email": "drink@iced-latte.com",
-    "sameAs": [
-      "https://www.upwork.com/freelancers/lehonghanh",
-      "https://www.linkedin.com/in/hanhlehong/",
-      "https://github.com/hanh-le-hong"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://iced-latte.com/#april",
+        "name": "April",
+        "alternateName": ["AiPRIL", "Hanh", "Hanh Le", "Le Hong Hanh"],
+        "jobTitle": "Marketer & Builder",
+        "url": "https://iced-latte.com/",
+        "email": "drink@iced-latte.com",
+        "sameAs": [
+          "https://www.upwork.com/freelancers/lehonghanh",
+          "https://www.linkedin.com/in/hanhlehong/",
+          "https://github.com/hanh-le-hong"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iced-latte.com/#website",
+        "url": "https://iced-latte.com/",
+        "name": "AiPRIL",
+        "description": "Personal site and working notebook of April (Hanh Le): marketing craft, marketing systems, product growth, and tiny AI projects.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://iced-latte.com/#april"
+        }
+      }
     ]
   }
   </script>
@@ -371,7 +391,7 @@
                 <h3 class="card-title">AiPRIL (iced-latte.com)</h3>
               </div>
               <p class="card-desc">
-                My personal corner on the internet, built with AI agents, a Markdown CMS, and a Winter/Spring terminal switch.
+                My personal corner on the internet, built with AI agents, a static Markdown SEO engine, and a Winter/Spring terminal switch.
               </p>
               <span class="card-link">
                 You are here ↑
@@ -444,7 +464,7 @@
 
         <hr class="divider-line" />
 
-        <!-- 03 // WRITING (Live Markdown Feed) -->
+        <!-- 03 // WRITING (Pre-rendered Static Links + Interactive Pillar Filter) -->
         <section id="writing" class="section-block">
           <div class="section-bar">
             <p class="section-label no-mb">03 // Writing · Notes &amp; Essays</p>
@@ -461,7 +481,34 @@
           </div>
 
           <div id="posts-feed" class="posts-matrix" aria-live="polite">
-            <div class="empty-feed">Loading notes...</div>
+            <!-- POSTS_FEED_START -->
+            <a href="writing/90-9-1-from-consuming-to-building/" class="post-row">
+              <div class="post-row-meta">
+                <span class="tag">The Lab</span>
+                <span class="post-row-date">2026-10-29</span>
+              </div>
+              <div class="post-row-main">
+                <h3>The 90-9-1 Rule: Moving from Consuming to Building</h3>
+                <p>Why I decided to stop just consuming content on the internet and start building tiny projects of my own with AI.</p>
+              </div>
+              <div class="post-row-right">
+                <span>3 min read -&gt;</span>
+              </div>
+            </a>
+            <a href="writing/craft-meets-marketing-systems/" class="post-row">
+              <div class="post-row-meta">
+                <span class="tag">The Craft</span>
+                <span class="post-row-date">2026-10-28</span>
+              </div>
+              <div class="post-row-main">
+                <h3>Why I’m Moving from Marketing Craft into Marketing Systems</h3>
+                <p>Plenty of people can pull a number. Fewer can say what marketing should do because of it.</p>
+              </div>
+              <div class="post-row-right">
+                <span>4 min read -&gt;</span>
+              </div>
+            </a>
+            <!-- POSTS_FEED_END -->
           </div>
         </section>
 
@@ -630,6 +677,8 @@
     </footer>
   </div>
 
+  <script src="analytics-config.js"></script>
+  <script src="analytics.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

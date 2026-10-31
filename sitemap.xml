@@ -2,17 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://iced-latte.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
-    <loc>https://iced-latte.com/post.html?slug=90-9-1-from-consuming-to-building</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://iced-latte.com/writing/90-9-1-from-consuming-to-building/</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
-    <loc>https://iced-latte.com/post.html?slug=craft-meets-marketing-systems</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://iced-latte.com/writing/craft-meets-marketing-systems/</loc>
+    <lastmod>2026-10-28</lastmod>
   </url>
 </urlset>
