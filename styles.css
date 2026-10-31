@@ -1,43 +1,43 @@
 /* ==========================================================================
    AiPRIL -- Noodle-Inspired Terminal-Editorial Design System
    100% JetBrains Mono, 20px dot-grid, 1px hairline matrices, sharp corners.
-   WINTER (Snowy Frost): #EAF0F7 · #B6C8DA · #90A6B7 · #597989 · #344A52
-   SPRING (Warm Blossom): #678215 · #FCD4BE · #F8F8EF · #FFE8DE · #FD832B · #FEC62D
+   WINTER (Midnight Sapphire): #213953 · #156AA8 · #4D8CC5 · #8FB1D3 · #CDD7E2
+   SPRING (Warm Blossom):      #678215 · #FCD4BE · #F8F8EF · #FFE8DE · #FD832B · #FEC62D
    ========================================================================== */
 
 :root,
 [data-theme="winter"] {
   color-scheme: dark;
-  --bg: #344A52;
-  --bg-depth: #2B3E45;
-  --surface: #3D545D;
-  --surface-hover: #476069;
-  --grid-line: #4A6470;
-  --dot-color: #597989;
-  --border: #597989;
-  --border-strong: #90A6B7;
+  --bg: #213953;
+  --bg-depth: #192C42;
+  --surface: #274564;
+  --surface-hover: #2E5175;
+  --grid-line: #2F5378;
+  --dot-color: #31567D;
+  --border: #365F8A;
+  --border-strong: #4D8CC5;
 
-  --text: #EAF0F7;
-  --text-body: #EAF0F7;
-  --text-muted: #B6C8DA;
-  --text-dim: #90A6B7;
-  --hero-sub: #B6C8DA;
+  --text: #F2F6FA;
+  --text-body: #DCE4EE;
+  --text-muted: #CDD7E2;
+  --text-dim: #8FB1D3;
+  --hero-sub: #4D8CC5;
 
-  --accent: #EAF0F7;
-  --accent-hover: #B6C8DA;
-  --accent-text: #EAF0F7;
-  --accent-link: #B6C8DA;
-  --accent-bg: rgba(89, 121, 137, 0.42);
-  --accent-border: #597989;
-  --accent-glow: rgba(144, 166, 183, 0.32);
-  --cursor-color: #EAF0F7;
+  --accent: #8FB1D3;
+  --accent-hover: #CDD7E2;
+  --accent-text: #CDD7E2;
+  --accent-link: #8FB1D3;
+  --accent-bg: rgba(21, 106, 168, 0.36);
+  --accent-border: rgba(77, 140, 197, 0.55);
+  --accent-glow: rgba(21, 106, 168, 0.24);
+  --cursor-color: #8FB1D3;
 
-  --selection-bg: #B6C8DA;
-  --selection-fg: #344A52;
+  --selection-bg: #8FB1D3;
+  --selection-fg: #213953;
 
-  --btn-primary-bg: #EAF0F7;
-  --btn-primary-fg: #344A52;
-  --header-bg: rgba(52, 74, 82, 0.92);
+  --btn-primary-bg: #8FB1D3;
+  --btn-primary-fg: #213953;
+  --header-bg: rgba(33, 57, 83, 0.92);
 
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
@@ -204,7 +204,7 @@ dd {
 }
 
 .brand:hover {
-  color: var(--border-strong);
+  color: var(--cursor-color);
 }
 
 .header-nav {
@@ -265,18 +265,12 @@ dd {
 }
 
 .season-sep {
-  color: var(--border);
+  color: var(--border-strong);
 }
 
-[data-theme="winter"] .season-opt[data-season="winter"] {
-  color: #EAF0F7;
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
+[data-theme="winter"] .season-opt[data-season="winter"],
 [data-theme="spring"] .season-opt[data-season="spring"] {
-  color: #FD832B;
+  color: var(--cursor-color);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -796,7 +790,7 @@ dd {
 
 .feature-card:hover .card-link,
 .card-link:hover {
-  color: var(--cursor-color);
+  color: var(--accent-text);
 }
 
 .connect-card {
@@ -966,7 +960,7 @@ dd {
 }
 
 .post-row:hover .post-row-right {
-  color: var(--cursor-color);
+  color: var(--accent-text);
 }
 
 .empty-feed {
