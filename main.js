@@ -54,7 +54,7 @@
   const copyBtn = document.getElementById("copy-email-btn");
   if (copyBtn) {
     copyBtn.addEventListener("click", function () {
-      const text = copyBtn.getAttribute("data-copy") || "lehhanh74@gmail.com";
+      const text = copyBtn.getAttribute("data-copy") || "drink@iced-latte.com";
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(function () {
           copyBtn.textContent = "Copied!";
