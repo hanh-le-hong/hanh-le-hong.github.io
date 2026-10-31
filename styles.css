@@ -1,43 +1,43 @@
 /* ==========================================================================
    AiPRIL -- Noodle-Inspired Terminal-Editorial Design System
    100% JetBrains Mono, 20px dot-grid, 1px hairline matrices, sharp corners.
-   WINTER: #192930 · #305366 · #5F8AA4 · #AAC3D6 · #B7CADB
-   SPRING: #678215 · #FCD4BE · #F8F8EF · #FFE8DE · #FD832B · #FEC62D
+   WINTER (Snowy Frost): #EAF0F7 · #B6C8DA · #90A6B7 · #597989 · #344A52
+   SPRING (Warm Blossom): #678215 · #FCD4BE · #F8F8EF · #FFE8DE · #FD832B · #FEC62D
    ========================================================================== */
 
 :root,
 [data-theme="winter"] {
-  color-scheme: dark;
-  --bg: #192930;
-  --bg-depth: #132026;
-  --surface: #20343d;
-  --surface-hover: #263e49;
-  --grid-line: #2b4959;
-  --dot-color: #305366;
-  --border: #305366;
-  --border-strong: #5F8AA4;
+  color-scheme: light;
+  --bg: #EAF0F7;
+  --bg-depth: #DFEAEE;
+  --surface: #E1ECF6;
+  --surface-hover: #D4E2F0;
+  --grid-line: #BCCDE0;
+  --dot-color: #B6C8DA;
+  --border: #90A6B7;
+  --border-strong: #597989;
 
-  --text: #F0F6FA;
-  --text-body: #DAE6F0;
-  --text-muted: #B7CADB;
-  --text-dim: #88AEC6;
-  --hero-sub: #5F8AA4;
+  --text: #344A52;
+  --text-body: #344A52;
+  --text-muted: #496573;
+  --text-dim: #597989;
+  --hero-sub: #597989;
 
-  --accent: #B7CADB;
-  --accent-hover: #AAC3D6;
-  --accent-text: #B7CADB;
-  --accent-link: #AAC3D6;
-  --accent-bg: rgba(170, 195, 214, 0.12);
-  --accent-border: rgba(183, 202, 219, 0.32);
-  --accent-glow: rgba(183, 202, 219, 0.08);
-  --cursor-color: #B7CADB;
+  --accent: #344A52;
+  --accent-hover: #597989;
+  --accent-text: #344A52;
+  --accent-link: #597989;
+  --accent-bg: rgba(182, 200, 218, 0.42);
+  --accent-border: #90A6B7;
+  --accent-glow: rgba(182, 200, 218, 0.42);
+  --cursor-color: #344A52;
 
-  --selection-bg: #AAC3D6;
-  --selection-fg: #192930;
+  --selection-bg: #B6C8DA;
+  --selection-fg: #344A52;
 
-  --btn-primary-bg: #B7CADB;
-  --btn-primary-fg: #192930;
-  --header-bg: rgba(25, 41, 48, 0.92);
+  --btn-primary-bg: #344A52;
+  --btn-primary-fg: #EAF0F7;
+  --header-bg: rgba(234, 240, 247, 0.92);
 
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
@@ -204,7 +204,7 @@ dd {
 }
 
 .brand:hover {
-  color: var(--cursor-color);
+  color: var(--border-strong);
 }
 
 .header-nav {
@@ -265,17 +265,21 @@ dd {
 }
 
 .season-sep {
-  color: var(--border-strong);
+  color: var(--border);
 }
 
 [data-theme="winter"] .season-opt[data-season="winter"] {
-  color: var(--accent-text);
+  color: #344A52;
   font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 [data-theme="spring"] .season-opt[data-season="spring"] {
   color: #FD832B;
   font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .external-top-link {
@@ -533,6 +537,7 @@ dd {
 
 .quickstart-url {
   color: var(--accent-text);
+  font-weight: 600;
   text-decoration: underline;
   text-decoration-color: var(--border-strong);
   text-underline-offset: 3px;
@@ -607,11 +612,12 @@ dd {
 
 .story-prose strong {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .story-prose a {
   color: var(--accent-text);
+  font-weight: 500;
   text-decoration: underline;
   text-decoration-color: var(--border-strong);
   text-underline-offset: 3px;
@@ -780,6 +786,7 @@ dd {
   padding-top: 24px;
   font-size: 0.8125rem;
   color: var(--accent-link);
+  font-weight: 500;
   text-decoration: none;
   letter-spacing: 0.04em;
   position: relative;
@@ -951,6 +958,7 @@ dd {
 .post-row-right {
   font-size: 0.8125rem;
   color: var(--accent-link);
+  font-weight: 500;
   white-space: nowrap;
   position: relative;
   z-index: 1;
@@ -1097,11 +1105,12 @@ dd {
 
 .article-prose strong {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .article-prose a {
   color: var(--accent-text);
+  font-weight: 500;
   text-decoration: underline;
   text-decoration-color: var(--border-strong);
   text-underline-offset: 3px;

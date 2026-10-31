@@ -25,7 +25,7 @@
       metaTheme.setAttribute("name", "theme-color");
       document.head.appendChild(metaTheme);
     }
-    metaTheme.setAttribute("content", season === "spring" ? "#F8F8EF" : "#192930");
+    metaTheme.setAttribute("content", season === "spring" ? "#F8F8EF" : "#EAF0F7");
     try {
       localStorage.setItem(STORAGE_KEY, season);
     } catch (_) {}
