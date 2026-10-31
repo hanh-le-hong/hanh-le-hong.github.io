@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /studio.html
+
+Sitemap: https://iced-latte.com/sitemap.xml

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Writing | AiPRIL</title>
+  <link id="canonical-link" rel="canonical" href="https://iced-latte.com/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -79,7 +80,7 @@
 
     <footer class="footer">
       <div class="footer-inner">
-        <span class="footer-text">AiPRIL · APRIL (HẠNH) © 2026</span>
+        <span class="footer-text">AiPRIL · ICED-LATTE.COM © 2026</span>
         <a href="index.html" class="footer-text footer-top-link">HOME ↑</a>
       </div>
     </footer>
@@ -175,6 +176,11 @@
       if (!slug) {
         document.getElementById("post-title").textContent = "Post not found";
         return;
+      }
+
+      const canonicalEl = document.getElementById("canonical-link");
+      if (canonicalEl) {
+        canonicalEl.href = "https://iced-latte.com/post.html?slug=" + encodeURIComponent(slug);
       }
 
       try {
