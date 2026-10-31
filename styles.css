@@ -1007,7 +1007,7 @@ dd {
 }
 
 /* ==========================================================================
-   Article Reader Page (post.html -- Noodle Docs Aesthetic)
+   Article Reader Page (/writing/<slug>/ & post.html -- Noodle Docs Aesthetic)
    ========================================================================== */
 
 .article-main {
@@ -1078,6 +1078,7 @@ dd {
   margin: 40px 0 18px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
+  scroll-margin-top: 72px;
 }
 
 .article-prose h3 {
@@ -1085,6 +1086,7 @@ dd {
   font-weight: 600;
   color: var(--text);
   margin: 28px 0 12px;
+  scroll-margin-top: 72px;
 }
 
 .article-prose ul,
@@ -1143,14 +1145,84 @@ dd {
   color: var(--text-body);
 }
 
-.article-footer-nav {
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 0 26px;
+}
+
+.prose-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  border: 1px solid var(--border);
+}
+
+.prose-table th,
+.prose-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.prose-table th {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.article-author-box {
   margin-top: 44px;
-  padding-top: 24px;
+  padding: 24px;
+  background: var(--bg-depth);
+  border: 1px solid var(--border);
+}
+
+.article-author-label {
+  font-size: 0.6875rem;
+  color: var(--text-dim);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.article-author-bio {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.article-author-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.article-footer-nav {
+  margin-top: 28px;
+  padding-top: 22px;
   border-top: 1px solid var(--border);
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
+}
+
+.article-raw-link {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-raw-link:hover {
+  color: var(--cursor-color);
 }
 
 /* ==========================================================================

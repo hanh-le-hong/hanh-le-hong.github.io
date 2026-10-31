@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
   <title>Writing | AiPRIL</title>
   <link id="canonical-link" rel="canonical" href="https://iced-latte.com/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -10,6 +11,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    // On production, redirect legacy post.html?slug=<slug> URLs cleanly to /writing/<slug>/
+    (function () {
+      var host = window.location.hostname;
+      if (host !== "localhost" && host !== "127.0.0.1") {
+        var params = new URLSearchParams(window.location.search);
+        var slug = params.get("slug");
+        if (slug && /^[a-z0-9-]+$/i.test(slug)) {
+          window.location.replace("/writing/" + encodeURIComponent(slug) + "/");
+        }
+      }
+    })();
+  </script>
 </head>
 <body>
   <div class="site-shell" id="top">
@@ -32,28 +46,8 @@
             <span class="season-sep">/</span>
             <span class="season-opt" data-season="spring">SPRING</span>
           </button>
-          <div class="divider-v" aria-hidden="true"></div>
-          <a
-            href="https://github.com/hanh-le-hong"
-            class="external-top-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M7 7h10v10" />
-              <path d="M7 17 17 7" />
-            </svg>
-          </a>
         </div>
       </div>
-
-      <nav class="mobile-nav" aria-label="Mobile Navigation">
-        <a href="index.html#writing" class="nav-link">&lt;- All Writing</a>
-        <a href="index.html#about" class="nav-link">About</a>
-        <a href="index.html#craft" class="nav-link">Craft</a>
-        <a href="index.html#lab" class="nav-link">Lab</a>
-      </nav>
     </header>
 
     <main class="article-main">
@@ -86,9 +80,10 @@
     </footer>
   </div>
 
+  <script src="analytics-config.js"></script>
+  <script src="analytics.js"></script>
   <script src="main.js"></script>
   <script>
-    // Zero-dependency Markdown parser with safe multi-line fenced code blocks
     function renderMarkdown(md) {
       const codeBlocks = [];
       let safe = md
@@ -109,25 +104,16 @@
 
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i].trim();
-
         if (!line) {
-          if (inList) {
-            out.push("</" + listType + ">");
-            inList = false;
-          }
+          if (inList) { out.push("</" + listType + ">"); inList = false; }
           continue;
         }
-
         const codeMatch = line.match(/^@@CODEBLOCK_(\d+)@@$/);
         if (codeMatch) {
-          if (inList) {
-            out.push("</" + listType + ">");
-            inList = false;
-          }
+          if (inList) { out.push("</" + listType + ">"); inList = false; }
           out.push(codeBlocks[Number(codeMatch[1])]);
           continue;
         }
-
         if (line.startsWith("### ")) {
           if (inList) { out.push("</" + listType + ">"); inList = false; }
           out.push("<h3>" + formatInline(line.slice(4)) + "</h3>");
@@ -137,17 +123,13 @@
         } else if (line.startsWith("- ")) {
           if (!inList || listType !== "ul") {
             if (inList) out.push("</" + listType + ">");
-            out.push("<ul>");
-            inList = true;
-            listType = "ul";
+            out.push("<ul>"); inList = true; listType = "ul";
           }
           out.push("<li>" + formatInline(line.slice(2)) + "</li>");
         } else if (/^\d+\.\s+/.test(line)) {
           if (!inList || listType !== "ol") {
             if (inList) out.push("</" + listType + ">");
-            out.push("<ol>");
-            inList = true;
-            listType = "ol";
+            out.push("<ol>"); inList = true; listType = "ol";
           }
           out.push("<li>" + formatInline(line.replace(/^\d+\.\s+/, "")) + "</li>");
         } else if (line.startsWith("&gt; ")) {
@@ -177,24 +159,19 @@
         document.getElementById("post-title").textContent = "Post not found";
         return;
       }
-
       const canonicalEl = document.getElementById("canonical-link");
       if (canonicalEl) {
-        canonicalEl.href = "https://iced-latte.com/post.html?slug=" + encodeURIComponent(slug);
+        canonicalEl.href = "https://iced-latte.com/writing/" + encodeURIComponent(slug) + "/";
       }
-
       try {
         const [indexRes, mdRes] = await Promise.all([
           fetch("posts/index.json?t=" + Date.now()),
           fetch("posts/" + encodeURIComponent(slug) + ".md?t=" + Date.now())
         ]);
-
         if (!mdRes.ok) throw new Error("Not found");
-
         const posts = await indexRes.json();
         const meta = posts.find(function (p) { return p.slug === slug; });
         const md = await mdRes.text();
-
         if (meta) {
           document.title = meta.title + " | AiPRIL";
           document.getElementById("post-title").textContent = meta.title;
@@ -204,7 +181,6 @@
           document.getElementById("post-summary").textContent = meta.summary || "";
           document.getElementById("edit-post-link").href = "studio.html?edit=" + encodeURIComponent(slug);
         }
-
         document.getElementById("post-body").innerHTML = renderMarkdown(md);
       } catch (_err) {
         document.getElementById("post-title").textContent = "Could not load article.";

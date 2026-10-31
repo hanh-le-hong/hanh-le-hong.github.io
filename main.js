@@ -47,6 +47,9 @@
       const current = root.getAttribute("data-theme") || "winter";
       const next = current === "winter" ? "spring" : "winter";
       applySeason(next);
+      if (typeof window.aiprilTrack === "function") {
+        window.aiprilTrack("theme_switched", { to_season: next });
+      }
     });
   }
 
@@ -59,6 +62,9 @@
         navigator.clipboard.writeText(text).then(function () {
           copyBtn.textContent = "Copied!";
           copyBtn.classList.add("is-copied");
+          if (typeof window.aiprilTrack === "function") {
+            window.aiprilTrack("email_copied", { location: "hero_terminal" });
+          }
           setTimeout(function () {
             copyBtn.textContent = "Copy";
             copyBtn.classList.remove("is-copied");
@@ -76,7 +82,11 @@
       .replace(/"/g, "&quot;");
   }
 
-  // Dynamic Writing Feed on Homepage
+  function postHref(slug) {
+    return "writing/" + encodeURIComponent(slug) + "/";
+  }
+
+  // Dynamic Writing Feed & Pillar Filter on Homepage
   const feedEl = document.getElementById("posts-feed");
   const filterBtns = document.querySelectorAll(".filter-chip");
   let allPosts = [];
@@ -100,8 +110,8 @@
     feedEl.innerHTML = list
       .map(function (post) {
         return (
-          '<a href="post.html?slug=' +
-          encodeURIComponent(post.slug) +
+          '<a href="' +
+          postHref(post.slug) +
           '" class="post-row">' +
           '<div class="post-row-meta">' +
           '<span class="tag">' +
@@ -131,7 +141,7 @@
   }
 
   if (feedEl) {
-    fetch("posts/index.json?t=" + Date.now())
+    fetch("posts/index.json")
       .then(function (r) {
         return r.json();
       })
@@ -140,17 +150,20 @@
         renderFeed("all");
       })
       .catch(function () {
-        feedEl.innerHTML =
-          '<p class="empty-feed">Could not load notes right now.</p>';
+        // Keep static pre-rendered HTML intact if fetch fails offline
       });
 
     filterBtns.forEach(function (btn) {
       btn.addEventListener("click", function () {
+        const filterVal = btn.getAttribute("data-filter") || "all";
         filterBtns.forEach(function (b) {
           b.classList.remove("active");
         });
         btn.classList.add("active");
-        renderFeed(btn.getAttribute("data-filter"));
+        renderFeed(filterVal);
+        if (typeof window.aiprilTrack === "function") {
+          window.aiprilTrack("pillar_filtered", { pillar: filterVal });
+        }
       });
     });
   }
