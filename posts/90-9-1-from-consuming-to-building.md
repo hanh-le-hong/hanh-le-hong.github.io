@@ -18,4 +18,4 @@ I am still a complete newbie on this path. My projects are tiny:
 
 I don't want to pretend to be a hardcore software engineer. By day, I am a 9-to-5 marketer and operator who puts business impact first.
 
-By night and on weekends, I just want to be part of the **1%** who builds—even if what I build starts small.
+By night and on weekends, I just want to be part of the **1%** who builds, even if what I build starts small.

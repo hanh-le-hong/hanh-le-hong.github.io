@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AiPRIL | Born in Spring, Chasing Winter</title>
-  <meta name="description" content="I’m April (Hạnh in Vietnamese), a doer and a marketer. Born in Spring, chasing Winter: moving from marketing craft into systems, logic, and technology." />
+  <title>AiPRIL | Born in Spring. Chasing Winter.</title>
+  <meta name="description" content="I'm April (Hạnh in Vietnamese), a doer and a marketer. Born in Spring, chasing Winter: moving from marketing craft into systems, logic, and technology." />
   <meta name="author" content="April (AiPRIL)" />
-  <meta property="og:title" content="AiPRIL | Born in Spring, Chasing Winter" />
-  <meta property="og:description" content="I’m April (Hạnh in Vietnamese), a doer and a marketer." />
+  <meta property="og:title" content="AiPRIL | Born in Spring. Chasing Winter." />
+  <meta property="og:description" content="Doer, marketer, and newbie builder solving business problems through marketing, product, and analysis." />
+  <meta property="og:url" content="https://hanh-le-hong.github.io/" />
   <meta property="og:type" content="website" />
 
-  <!-- Fonts: Instrument Serif (Art/Human), Plus Jakarta Sans (Clean Logic), JetBrains Mono (Robotic/Code) -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -25,6 +26,7 @@
     "name": "April",
     "alternateName": ["AiPRIL", "Hanh", "Hanh Le", "Le Hong Hanh"],
     "jobTitle": "Marketer & Builder",
+    "url": "https://hanh-le-hong.github.io/",
     "sameAs": [
       "https://www.upwork.com/freelancers/lehonghanh",
       "https://www.linkedin.com/in/hanhlehong/",
@@ -34,318 +36,596 @@
   </script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-bar">
-      <a href="#top" class="brand" aria-label="AiPRIL Home">
-        <span class="brand-ai">Ai</span><span class="brand-pril">PRIL</span>
-      </a>
+  <div class="site-shell" id="top">
+    <!-- Sticky 52px Noodle-style Header -->
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <a href="#top" class="brand" aria-label="AiPRIL Home">AiPRIL</a>
+          <nav class="header-nav" aria-label="Main Navigation">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#craft" class="nav-link">Craft</a>
+            <a href="#lab" class="nav-link">Lab</a>
+            <a href="#writing" class="nav-link">Writing</a>
+            <a href="#human" class="nav-link">Human</a>
+            <a href="#connect" class="nav-link">Connect</a>
+          </nav>
+        </div>
 
-      <nav class="chapter-nav" aria-label="Main Navigation">
-        <a href="#craft"><span class="mono-idx">01</span> The Craft</a>
-        <a href="#lab"><span class="mono-idx">02</span> The Lab</a>
-        <a href="#human"><span class="mono-idx">03</span> The Human</a>
-        <a href="#connect"><span class="mono-idx">04</span> Connect</a>
+        <div class="header-right">
+          <button id="theme-toggle" class="season-switch" type="button" aria-label="Switch between Winter and Spring mode">
+            <span class="season-opt" data-season="winter">WINTER</span>
+            <span class="season-sep">/</span>
+            <span class="season-opt" data-season="spring">SPRING</span>
+          </button>
+          <div class="divider-v" aria-hidden="true"></div>
+          <a
+            href="https://github.com/hanh-le-hong"
+            class="external-top-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Quick Nav Strip -->
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#craft" class="nav-link">Craft</a>
+        <a href="#lab" class="nav-link">Lab</a>
+        <a href="#writing" class="nav-link">Writing</a>
+        <a href="#human" class="nav-link">Human</a>
+        <a href="#connect" class="nav-link">Connect</a>
       </nav>
+    </header>
 
-      <button id="theme-toggle" class="season-switch" type="button" aria-label="Switch between Winter and Spring mode">
-        <span class="season-opt" data-season="winter">Winter</span>
-        <span class="season-sep">/</span>
-        <span class="season-opt" data-season="spring">Spring</span>
-      </button>
-    </div>
-  </header>
+    <!-- Main Dot-Grid Canvas -->
+    <main class="main">
+      <div class="container">
+        <!-- Badge Row -->
+        <div class="badge-row hero-anim-1">
+          <span class="tag">APRIL · HẠNH</span>
+          <span class="badge-label">DOER · MARKETER · NEWBIE BUILDER</span>
+        </div>
 
-  <main id="top">
-    <!-- HERO: Balanced Centered Container with Left Intro + Right Portrait Background -->
-    <section class="hero-stage">
-      <div class="container hero-stage-inner">
-        <!-- Seamless Background Artwork inside balanced container + Logic/Code Overlays -->
-        <div class="hero-bg-art" aria-hidden="true">
-          <img
-            src="assets/davinci-spring.jpg"
-            alt=""
-            class="hero-bg-painting painting-spring"
-          />
-          <img
-            src="assets/davinci-portrait.jpg"
-            alt=""
-            class="hero-bg-painting painting-winter"
-          />
+        <!-- Hero -->
+        <section class="hero">
+          <h1 class="hero-title hero-anim-2">AiPRIL</h1>
+          <h2 class="hero-subtitle hero-anim-3">
+            <span class="block">Born in Spring.</span>
+            <span class="cursor">Chasing Winter</span>
+          </h2>
 
-          <!-- Minimal Logic + Art Code Snippets on the Portrait Stage -->
-          <div class="art-code-layer">
-            <div class="code-card code-card-sql">
-              <div class="code-card-head">
-                <span class="code-dot"></span>
-                <span>query.sql</span>
+          <p class="hero-desc hero-anim-4">
+            Solving business problems through marketing, product, and analysis. Taking baby steps from consuming to building tiny systems with AI.
+          </p>
+
+          <div class="cta-row hero-anim-5">
+            <a
+              href="https://www.upwork.com/freelancers/lehonghanh"
+              class="btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Upwork Profile
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/hanhlehong/"
+              class="btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+
+            <a
+              href="https://github.com/hanh-le-hong"
+              class="btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+
+            <a href="#writing" class="btn-secondary">
+              Read Notes ↓
+            </a>
+          </div>
+
+          <!-- Noodle-style Terminal Strip -->
+          <div class="quickstart hero-anim-6">
+            <p class="quickstart-label">Direct Ping // Win-Win Collaborations</p>
+            <div class="quickstart-block">
+              <pre class="quickstart-pre"><code>$ contact --april
+<a href="mailto:lehhanh74@gmail.com" class="quickstart-url">lehhanh74@gmail.com</a>  <span class="code-comment"># marketing, growth, product &amp; systems</span></code></pre>
+              <button id="copy-email-btn" class="quickstart-copy" type="button" data-copy="lehhanh74@gmail.com">
+                Copy
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <hr class="divider-line" />
+
+        <!-- 00 // README.MD (Personal Story + Quick Specs) -->
+        <section id="about" class="section-block">
+          <p class="section-label">00 // README.md</p>
+
+          <div class="readme-matrix">
+            <div class="readme-story">
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="8" y1="13" x2="16" y2="13" />
+                    <line x1="8" y1="17" x2="13" y2="17" />
+                  </svg>
+                </div>
+                <h3 class="card-title">april / story.md</h3>
               </div>
-              <pre><code><span class="c-kw">SELECT</span> craft, systems, impact
-<span class="c-kw">FROM</span> april.journey
-<span class="c-kw">WHERE</span> mode = <span class="c-str">'winter'</span>
-  <span class="c-kw">AND</span> ratio = <span class="c-str">'90-9-1'</span>;</code></pre>
-            </div>
 
-            <div class="code-card code-card-hello">
-              <div class="code-card-head">
-                <span class="code-dot"></span>
-                <span>hello_world.py</span>
+              <div class="story-prose">
+                <p>
+                  I’m <strong>April</strong> (<strong>Hạnh</strong> in Vietnamese), a doer and a marketer. I was born in Spring, but I’ve spent my life chasing Winter. As a tropical girl from Vietnam, my biggest dream has always been to study and experience life in places with a real winter. In my work, it means the same thing: starting from the warmth of marketing craft, and chasing the crisp, clear logic of systems and technology.
+                </p>
+
+                <p>
+                  I work to solve business problems through marketing, product, and analysis. By day, I’m a 9-to-5 operator who puts business impact first. I help the companies I work for grow, and I get paid for the value I bring. Simple, honest, win-win.
+                </p>
+
+                <p>
+                  I love the <strong>90-9-1 rule</strong>: out of 100 people, 90 consume, 9 distribute, and 1 builds. I’m still a complete newbie on the builder path, taking baby steps to move from consuming to distributing to building tiny projects of my own, like <a href="https://snapcard-dc0ca.web.app/" target="_blank" rel="noopener noreferrer">Snapcard</a>, <a href="https://github.com/hanh-le-hong/marketing-systems-lab" target="_blank" rel="noopener noreferrer">Marketing Systems Lab</a>, and this website.
+                </p>
+
+                <p>
+                  I hold an M.S. in Marketing Management, though my real school has always been YouTube, AI, the internet, and life itself. I come from a non-tech, no-code background and only recently became active on <a href="https://github.com/hanh-le-hong" target="_blank" rel="noopener noreferrer">GitHub</a> after AI opened the door to technology for me. Honestly, everything about it still makes me go <em>“wow.”</em>
+                </p>
+
+                <p>
+                  I enjoy learning anything that helps me make money honestly and helps the people I collaborate with grow.
+                </p>
               </div>
-              <pre><code><span class="c-cm"># from consuming → building</span>
-<span class="c-kw">print</span>(<span class="c-str">"Hello, World."</span>)</code></pre>
             </div>
 
-            <div class="art-coord-tag">
-              <span>+ [LOGIC × ART // 90·09·01]</span>
-            </div>
+            <aside class="readme-specs" aria-label="Quick Profile Specs">
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="4 17 10 11 4 5" />
+                    <line x1="12" y1="19" x2="20" y2="19" />
+                  </svg>
+                </div>
+                <h3 class="card-title">system.toml</h3>
+              </div>
+
+              <dl class="spec-list">
+                <div class="spec-item">
+                  <dt>NAME</dt>
+                  <dd>April (Hạnh Lê)</dd>
+                </div>
+                <div class="spec-item">
+                  <dt>DAY ROLE</dt>
+                  <dd>9-to-5 Marketer &amp; Operator</dd>
+                </div>
+                <div class="spec-item">
+                  <dt>FOCUS</dt>
+                  <dd>Marketing, Product, Growth &amp; Analysis</dd>
+                </div>
+                <div class="spec-item">
+                  <dt>DEGREE</dt>
+                  <dd>M.S. in Marketing Management</dd>
+                </div>
+                <div class="spec-item">
+                  <dt>REAL SCHOOL</dt>
+                  <dd>YouTube · AI · Internet · Life</dd>
+                </div>
+                <div class="spec-item">
+                  <dt>THESIS</dt>
+                  <dd>90 -&gt; 9 -&gt; 1 (Consuming to Building)</dd>
+                </div>
+                <div class="spec-item">
+                  <dt>PRINCIPLE</dt>
+                  <dd>Business impact first. Honest win-win.</dd>
+                </div>
+              </dl>
+            </aside>
           </div>
-        </div>
+        </section>
 
-        <div class="hero-split">
-        <!-- Left Column: Personal Intro (Never overlaps the portrait on the right) -->
-        <div class="hero-left">
-          <p class="hero-kicker">DOER · MARKETER · NEWBIE BUILDER</p>
-          <h1 class="hero-display">
-            Born in Spring.<br />
-            <em>Chasing</em> Winter.
-          </h1>
+        <hr class="divider-line" />
 
-          <div class="intro-essay">
-            <p class="lead-paragraph">
-              I’m <strong>April</strong> (<strong>Hạnh</strong> in Vietnamese), a doer and a marketer. I was born in Spring, but I’ve spent my life chasing Winter. As a tropical girl from Vietnam, my biggest dream has always been to study and experience life in places with a real winter. In my work, it means the same thing: starting from the warmth of marketing craft, and chasing the crisp, clear logic of systems and technology.
-            </p>
+        <!-- 01 // THE CRAFT -->
+        <section id="craft" class="section-block">
+          <p class="section-label">01 // The Craft</p>
 
-            <p>
-              I work to solve business problems through marketing, product, and analysis. By day, I’m a 9-to-5 operator who puts business impact first. I help the companies I work for grow, and I get paid for the value I bring. Simple, honest, win-win.
-            </p>
+          <div class="cards-grid cols-4">
+            <article class="feature-card">
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Marketing Management</h3>
+              </div>
+              <p class="card-desc">
+                Positioning products clearly and running go-to-market plans that turn attention into revenue.
+              </p>
+              <ul class="skill-tags">
+                <li>GTM Strategy</li>
+                <li>Positioning</li>
+                <li>Brand &amp; Messaging</li>
+                <li>Campaigns</li>
+              </ul>
+            </article>
 
-            <p>
-              I love the <strong>90-9-1 rule</strong>: out of 100 people, 90 consume, 9 distribute, and 1 builds. I’m still a complete newbie on the builder path, taking baby steps to move from consuming to distributing to building tiny projects of my own, like <a href="https://snapcard-dc0ca.web.app/" target="_blank" rel="noopener noreferrer">Snapcard</a>, <a href="https://github.com/hanh-le-hong/marketing-systems-lab" target="_blank" rel="noopener noreferrer">Marketing Systems Lab</a>, and this website.
-            </p>
+            <article class="feature-card">
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                    <polyline points="16 7 22 7 22 13" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Product &amp; Growth</h3>
+              </div>
+              <p class="card-desc">
+                Diagnosing funnels and building acquisition, activation, and retention loops that scale.
+              </p>
+              <ul class="skill-tags">
+                <li>Product-Led Growth</li>
+                <li>KPI Trees</li>
+                <li>Funnel Diagnosis</li>
+                <li>CRO</li>
+              </ul>
+            </article>
 
-            <p>
-              I hold an M.S. in Marketing Management, though my real school has always been YouTube, AI, the internet, and life itself. I come from a non-tech, no-code background and only recently became active on <a href="https://github.com/hanh-le-hong" target="_blank" rel="noopener noreferrer">GitHub</a> after AI opened the door to technology for me. Honestly, everything about it still makes me go <em>“wow.”</em>
-            </p>
+            <article class="feature-card">
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Technology &amp; AI</h3>
+              </div>
+              <p class="card-desc">
+                Exploring AI agents, tracking setups, and small tools that turn manual work into systems.
+              </p>
+              <ul class="skill-tags">
+                <li>AI Agents</li>
+                <li>Claude Code</li>
+                <li>Automation</li>
+                <li>PostHog / GA4</li>
+              </ul>
+            </article>
 
-            <p>
-              I enjoy learning anything that helps me make money honestly and helps the people I collaborate with grow.
-            </p>
-
-            <div class="hero-actions">
-              <a href="https://www.upwork.com/freelancers/lehonghanh" target="_blank" rel="noopener noreferrer" class="btn btn-solid">
-                Upwork ↗
-              </a>
-              <a href="https://www.linkedin.com/in/hanhlehong/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-                LinkedIn ↗
-              </a>
-              <a href="https://github.com/hanh-le-hong" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-                GitHub ↗
-              </a>
-              <a href="mailto:lehhanh74@gmail.com" class="btn btn-ghost">
-                Email →
-              </a>
-            </div>
+            <article class="feature-card">
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Business &amp; Analysis</h3>
+              </div>
+              <p class="card-desc">
+                Looking at real numbers, market research, and unit economics to make win-win business decisions.
+              </p>
+              <ul class="skill-tags">
+                <li>Market Research</li>
+                <li>Business Analysis</li>
+                <li>Marketplace</li>
+                <li>Monetization</li>
+              </ul>
+            </article>
           </div>
-        </div>
+        </section>
 
-        <!-- Right Column: Empty spacer so the background portrait breathes unobstructed -->
-        <div class="hero-right-spacer" aria-hidden="true"></div>
-      </div>
-      </div>
-    </section>
+        <hr class="divider-line" />
 
-    <!-- 01 // THE CRAFT (4 Clean Blocks: Title + 1 Sentence + Skill Tags) -->
-    <section id="craft" class="section-block">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-num">01 // WORK</span>
-          <h2 class="section-title">The Craft</h2>
-        </div>
+        <!-- 02 // THE LAB -->
+        <section id="lab" class="section-block">
+          <p class="section-label">02 // The Lab · 90 -&gt; 9 -&gt; 1</p>
 
-        <div class="craft-grid">
-          <article class="craft-card">
-            <h3>Marketing Management</h3>
-            <p>Positioning products clearly and running go-to-market plans that turn attention into revenue.</p>
-            <ul class="skill-tags">
-              <li>GTM Strategy</li>
-              <li>Product Positioning</li>
-              <li>Brand &amp; Messaging</li>
-              <li>Campaigns</li>
-            </ul>
-          </article>
-
-          <article class="craft-card">
-            <h3>Product &amp; Growth</h3>
-            <p>Diagnosing funnels and building acquisition, activation, and retention loops that scale.</p>
-            <ul class="skill-tags">
-              <li>Product-Led Growth</li>
-              <li>KPI Trees</li>
-              <li>Funnel Diagnosis</li>
-              <li>CRO</li>
-            </ul>
-          </article>
-
-          <article class="craft-card">
-            <h3>Technology &amp; AI</h3>
-            <p>Exploring AI agents, tracking setups, and small tools that turn manual work into systems.</p>
-            <ul class="skill-tags">
-              <li>AI Agents</li>
-              <li>Claude Code</li>
-              <li>Marketing Automation</li>
-              <li>PostHog / GA4</li>
-            </ul>
-          </article>
-
-          <article class="craft-card">
-            <h3>Business &amp; Analysis</h3>
-            <p>Looking at real numbers, market research, and unit economics to make win-win business decisions.</p>
-            <ul class="skill-tags">
-              <li>Market Research</li>
-              <li>Business Analysis</li>
-              <li>Marketplace Strategy</li>
-              <li>Monetization</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 02 // THE LAB (Tiny Projects in Public) -->
-    <section id="lab" class="section-block">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-num">02 // 90 → 9 → 1</span>
-          <h2 class="section-title">The Lab</h2>
-        </div>
-
-        <div class="lab-grid">
-          <a href="#top" class="lab-item">
-            <div class="lab-top">
-              <span class="mono-tag">TINY BUILD #01</span>
-              <span class="arrow">↑</span>
-            </div>
-            <h3>AiPRIL Website</h3>
-            <p>My personal corner on the internet, built with AI agents and a Spring/Winter mode switch.</p>
-          </a>
-
-          <a href="https://github.com/hanh-le-hong/marketing-systems-lab" target="_blank" rel="noopener noreferrer" class="lab-item">
-            <div class="lab-top">
-              <span class="mono-tag">TINY BUILD #02</span>
-              <span class="arrow">↗</span>
-            </div>
-            <h3>Marketing Systems Lab</h3>
-            <p>Practising measurement, AI fluency, and marketing automation in public, one piece at a time.</p>
-          </a>
-
-          <a href="https://snapcard-dc0ca.web.app/" target="_blank" rel="noopener noreferrer" class="lab-item">
-            <div class="lab-top">
-              <span class="mono-tag">TINY BUILD #03</span>
-              <span class="arrow">↗</span>
-            </div>
-            <h3>Snapcard</h3>
-            <p>My first tiny web app: digital postcards you can send with a single link.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 // THE HUMAN (Beyond Work) -->
-    <section id="human" class="section-block">
-      <div class="container">
-        <div class="section-head">
-          <span class="section-num">03 // OFF WORK</span>
-          <h2 class="section-title">The Human</h2>
-        </div>
-
-        <div class="human-grid">
-          <article class="human-item">
-            <span class="mono-tag">01 / VISUAL</span>
-            <h3>Photography &amp; Art</h3>
-            <p>Observing light, classical paintings, and everyday street moments.</p>
-          </article>
-
-          <article class="human-item">
-            <span class="mono-tag">02 / MIND</span>
-            <h3>Chess &amp; Philosophy</h3>
-            <p>Quiet strategy, clear thinking, and a fondness for sharp characters like Haibara Ai.</p>
-          </article>
-
-          <article class="human-item">
-            <span class="mono-tag">03 / TEMPO</span>
-            <h3>Music &amp; Sports</h3>
-            <p>Playlists for deep focus and daily movement to keep energy steady.</p>
-          </article>
-
-          <article class="human-item">
-            <span class="mono-tag">04 / WORLD</span>
-            <h3>Travel &amp; Dreams</h3>
-            <p>Exploring new cities, volunteering with STEAM for Vietnam, and chasing real winter skies.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 04 // WRITING (Hidden for v1 Home launch tonight; ready for tomorrow's posts) -->
-    <section id="writing" class="section-block" hidden>
-      <div class="container">
-        <div class="section-head">
-          <div class="writing-head-left">
-            <span class="section-num">04 // NOTES &amp; ESSAYS</span>
-            <div class="writing-filter-group" role="tablist" aria-label="Filter posts by pillar">
-              <button class="filter-chip active" data-filter="all" type="button">All</button>
-              <button class="filter-chip" data-filter="The Craft" type="button">The Craft</button>
-              <button class="filter-chip" data-filter="The Lab" type="button">The Lab</button>
-              <button class="filter-chip" data-filter="The Human" type="button">The Human</button>
-            </div>
-          </div>
-          <div class="writing-head-right">
-            <h2 class="section-title">Writing</h2>
-            <a href="studio.html" class="studio-launch-link">+ Write in Studio ✎</a>
-          </div>
-        </div>
-
-        <div id="posts-feed" class="posts-feed"></div>
-      </div>
-    </section>
-
-    <!-- 04 // CONNECT -->
-    <section id="connect" class="section-block connect-block">
-      <div class="container">
-        <div class="connect-box">
-          <div>
-            <span class="section-num">04 // CONNECT</span>
-            <h2 class="connect-heading">Let’s talk.</h2>
-          </div>
-
-          <div class="connect-links">
-            <a href="https://www.upwork.com/freelancers/lehonghanh" target="_blank" rel="noopener noreferrer" class="connect-pill">
-              <span>Upwork</span>
-              <span>/freelancers/lehonghanh ↗</span>
+          <div class="cards-grid cols-3">
+            <a href="#top" class="feature-card card-interactive">
+              <div class="card-top-meta">
+                <span class="tag">BUILD #01</span>
+              </div>
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" />
+                    <line x1="3" y1="9" x2="21" y2="9" />
+                    <line x1="9" y1="21" x2="9" y2="9" />
+                  </svg>
+                </div>
+                <h3 class="card-title">AiPRIL Website</h3>
+              </div>
+              <p class="card-desc">
+                My personal corner on the internet, built with AI agents, a Markdown CMS, and a Winter/Spring terminal switch.
+              </p>
+              <span class="card-link">
+                You are here ↑
+              </span>
             </a>
-            <a href="https://www.linkedin.com/in/hanhlehong/" target="_blank" rel="noopener noreferrer" class="connect-pill">
-              <span>LinkedIn</span>
-              <span>/in/hanhlehong ↗</span>
+
+            <a
+              href="https://github.com/hanh-le-hong/marketing-systems-lab"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="feature-card card-interactive"
+            >
+              <div class="card-top-meta">
+                <span class="tag">BUILD #02</span>
+              </div>
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="6" x2="6" y1="3" y2="15" />
+                    <circle cx="18" cy="6" r="3" />
+                    <circle cx="6" cy="18" r="3" />
+                    <path d="M18 9a9 9 0 0 1-9 9" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Marketing Systems Lab</h3>
+              </div>
+              <p class="card-desc">
+                Practising measurement, AI fluency, and marketing automation in public, one piece at a time.
+              </p>
+              <span class="card-link">
+                Explore repository
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </span>
             </a>
-            <a href="mailto:lehhanh74@gmail.com" class="connect-pill">
-              <span>Email</span>
-              <span>lehhanh74@gmail.com →</span>
-            </a>
-            <a href="https://github.com/hanh-le-hong" target="_blank" rel="noopener noreferrer" class="connect-pill">
-              <span>GitHub</span>
-              <span>@hanh-le-hong ↗</span>
+
+            <a
+              href="https://snapcard-dc0ca.web.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="feature-card card-interactive"
+            >
+              <div class="card-top-meta">
+                <span class="tag">BUILD #03</span>
+              </div>
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Snapcard</h3>
+              </div>
+              <p class="card-desc">
+                My first tiny web app: digital postcards you can personalize and send with a single link.
+              </p>
+              <span class="card-link">
+                Launch web app
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </span>
             </a>
           </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
 
-  <footer class="site-footer">
-    <div class="container footer-bar">
-      <span><strong>AiPRIL</strong></span>
-      <a href="#top" class="back-top">Top ↑</a>
-    </div>
-  </footer>
+        <hr class="divider-line" />
+
+        <!-- 03 // WRITING (Live Markdown Feed) -->
+        <section id="writing" class="section-block">
+          <div class="section-bar">
+            <p class="section-label no-mb">03 // Writing · Notes &amp; Essays</p>
+
+            <div class="section-bar-controls">
+              <div class="writing-filter-group" role="tablist" aria-label="Filter posts by pillar">
+                <button class="filter-chip active" data-filter="all" type="button">All</button>
+                <button class="filter-chip" data-filter="The Craft" type="button">The Craft</button>
+                <button class="filter-chip" data-filter="The Lab" type="button">The Lab</button>
+                <button class="filter-chip" data-filter="The Human" type="button">The Human</button>
+              </div>
+              <a href="studio.html" class="studio-launch-link local-only" hidden>+ Studio</a>
+            </div>
+          </div>
+
+          <div id="posts-feed" class="posts-matrix" aria-live="polite">
+            <div class="empty-feed">Loading notes...</div>
+          </div>
+        </section>
+
+        <hr class="divider-line" />
+
+        <!-- 04 // THE HUMAN -->
+        <section id="human" class="section-block">
+          <p class="section-label">04 // The Human · Off Work</p>
+
+          <div class="cards-grid cols-4">
+            <article class="feature-card">
+              <div class="card-top-meta">
+                <span class="badge-label">01 / VISUAL</span>
+              </div>
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                    <circle cx="12" cy="13" r="4" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Photography &amp; Art</h3>
+              </div>
+              <p class="card-desc">
+                Observing light, classical paintings, and quiet everyday street moments.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="card-top-meta">
+                <span class="badge-label">02 / MIND</span>
+              </div>
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="14" y="14" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Chess &amp; Philosophy</h3>
+              </div>
+              <p class="card-desc">
+                Quiet strategy, clear thinking, and a fondness for sharp characters like Haibara Ai.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="card-top-meta">
+                <span class="badge-label">03 / TEMPO</span>
+              </div>
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Music &amp; Sports</h3>
+              </div>
+              <p class="card-desc">
+                Playlists for deep focus and daily movement to keep energy steady.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="card-top-meta">
+                <span class="badge-label">04 / WORLD</span>
+              </div>
+              <div class="card-header">
+                <div class="card-icon" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <h3 class="card-title">Travel &amp; Dreams</h3>
+              </div>
+              <p class="card-desc">
+                Exploring new cities, volunteering with STEAM for Vietnam, and chasing real winter skies.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <hr class="divider-line" />
+
+        <!-- 05 // CONNECT -->
+        <section id="connect" class="section-block">
+          <p class="section-label">05 // Connect · Let's Talk</p>
+
+          <div class="cards-grid cols-4">
+            <a
+              href="https://www.upwork.com/freelancers/lehonghanh"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="feature-card connect-card"
+            >
+              <span class="badge-label">FREELANCE &amp; PROJECTS</span>
+              <h3 class="connect-title">Upwork</h3>
+              <span class="card-link">
+                /freelancers/lehonghanh
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/hanhlehong/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="feature-card connect-card"
+            >
+              <span class="badge-label">PROFESSIONAL NETWORK</span>
+              <h3 class="connect-title">LinkedIn</h3>
+              <span class="card-link">
+                /in/hanhlehong
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </span>
+            </a>
+
+            <a
+              href="mailto:lehhanh74@gmail.com"
+              class="feature-card connect-card"
+            >
+              <span class="badge-label">DIRECT INBOX</span>
+              <h3 class="connect-title">Email</h3>
+              <span class="card-link">
+                lehhanh74@gmail.com -&gt;
+              </span>
+            </a>
+
+            <a
+              href="https://github.com/hanh-le-hong"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="feature-card connect-card"
+            >
+              <span class="badge-label">CODE &amp; LABS</span>
+              <h3 class="connect-title">GitHub</h3>
+              <span class="card-link">
+                @hanh-le-hong
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M7 7h10v10" />
+                  <path d="M7 17 17 7" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <span class="footer-text">AiPRIL · APRIL (HẠNH) © 2026</span>
+        <a href="#top" class="footer-text footer-top-link">BORN IN SPRING · CHASING WINTER ↑</a>
+      </div>
+    </footer>
+  </div>
 
   <script src="main.js"></script>
 </body>

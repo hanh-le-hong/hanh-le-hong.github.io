@@ -4,105 +4,111 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CMS Studio | AiPRIL</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-bar">
-      <a href="index.html" class="brand" aria-label="AiPRIL Home">
-        <span class="brand-ai">Ai</span><span class="brand-pril">PRIL</span>
-        <span class="studio-badge">CMS STUDIO</span>
-      </a>
-
-      <nav class="chapter-nav">
-        <a href="index.html">← View Live Website</a>
-      </nav>
-
-      <button id="theme-toggle" class="season-switch" type="button">
-        <span class="season-opt" data-season="winter">Winter</span>
-        <span class="season-sep">/</span>
-        <span class="season-opt" data-season="spring">Spring</span>
-      </button>
-    </div>
-  </header>
-
-  <main class="studio-main">
-    <div class="container studio-layout">
-      <!-- Left Sidebar: Existing Posts -->
-      <aside class="studio-sidebar">
-        <div class="studio-sidebar-head">
-          <span class="mono-tag">ALL POSTS</span>
-          <button id="new-post-btn" class="btn btn-solid btn-sm" type="button">+ New Post</button>
+  <div class="site-shell">
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-left">
+          <a href="index.html" class="brand" aria-label="AiPRIL Home">
+            <span>AiPRIL</span>
+            <span class="studio-badge">STUDIO</span>
+          </a>
+          <nav class="header-nav">
+            <a href="index.html" class="nav-link">&lt;- View Website</a>
+          </nav>
         </div>
-        <div id="studio-post-list" class="studio-post-list"></div>
-      </aside>
 
-      <!-- Center: Markdown Editor -->
-      <section class="studio-editor">
-        <div class="studio-form-row">
+        <div class="header-right">
+          <button id="theme-toggle" class="season-switch" type="button">
+            <span class="season-opt" data-season="winter">WINTER</span>
+            <span class="season-sep">/</span>
+            <span class="season-opt" data-season="spring">SPRING</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="studio-main">
+      <div class="container studio-layout">
+        <!-- Left Sidebar: Existing Posts -->
+        <aside class="studio-sidebar">
+          <div class="studio-sidebar-head">
+            <span class="tag">ALL POSTS</span>
+            <button id="new-post-btn" class="btn-solid btn-sm" type="button">+ New</button>
+          </div>
+          <div id="studio-post-list" class="studio-post-list"></div>
+        </aside>
+
+        <!-- Center: Markdown Editor -->
+        <section class="studio-editor">
+          <div class="studio-form-row">
+            <div class="studio-field">
+              <label for="f-title">TITLE</label>
+              <input id="f-title" type="text" placeholder="e.g. Why I'm Learning SQL as a Marketer" />
+            </div>
+          </div>
+
+          <div class="studio-form-grid">
+            <div class="studio-field">
+              <label for="f-slug">URL SLUG (AUTO)</label>
+              <input id="f-slug" type="text" placeholder="why-im-learning-sql" />
+            </div>
+            <div class="studio-field">
+              <label for="f-category">PILLAR / CATEGORY</label>
+              <select id="f-category">
+                <option value="The Craft">01 / The Craft (Work &amp; Marketing)</option>
+                <option value="The Lab">02 / The Lab (90-9-1 Builds &amp; AI)</option>
+                <option value="The Human">03 / The Human (Life, Chess, Travel)</option>
+              </select>
+            </div>
+            <div class="studio-field">
+              <label for="f-date">DATE</label>
+              <input id="f-date" type="date" />
+            </div>
+          </div>
+
           <div class="studio-field">
-            <label for="f-title">TITLE</label>
-            <input id="f-title" type="text" placeholder="e.g. Why I’m Learning SQL as a Marketer" />
+            <label for="f-summary">ONE-SENTENCE SUMMARY (SHOWN ON HOMEPAGE)</label>
+            <input id="f-summary" type="text" placeholder="A short, honest summary in one sentence." />
           </div>
-        </div>
 
-        <div class="studio-form-grid">
           <div class="studio-field">
-            <label for="f-slug">URL SLUG (AUTO)</label>
-            <input id="f-slug" type="text" placeholder="why-im-learning-sql" />
+            <div class="editor-toolbar">
+              <label for="f-body">CONTENT (MARKDOWN)</label>
+              <span class="toolbar-hint">Use <code>## Heading</code>, <code>**bold**</code>, <code>*italic*</code>, <code>- list</code>, <code>[Link](https://...)</code></span>
+            </div>
+            <textarea id="f-body" rows="16" placeholder="Write your thoughts honestly here..."></textarea>
           </div>
-          <div class="studio-field">
-            <label for="f-category">PILLAR / CATEGORY</label>
-            <select id="f-category">
-              <option value="The Craft">01 / The Craft (Work &amp; Marketing)</option>
-              <option value="The Lab">02 / The Lab (90-9-1 Builds &amp; AI)</option>
-              <option value="The Human">03 / The Human (Life, Chess, Travel)</option>
-            </select>
+
+          <div class="studio-actions">
+            <button id="publish-btn" class="btn-solid" type="button">Publish / Save Post</button>
+            <button id="download-md-btn" class="btn-ghost" type="button">Download .md</button>
+            <span id="studio-status" class="studio-status"></span>
           </div>
-          <div class="studio-field">
-            <label for="f-date">DATE</label>
-            <input id="f-date" type="date" />
+        </section>
+
+        <!-- Right: Live Preview -->
+        <section class="studio-preview">
+          <div class="studio-sidebar-head">
+            <span class="tag">LIVE PREVIEW</span>
+            <a id="open-post-link" href="#" target="_blank" class="mono-date" style="display:none;">Open Page ↗</a>
           </div>
-        </div>
-
-        <div class="studio-field">
-          <label for="f-summary">ONE-SENTENCE SUMMARY (SHOWN ON HOMEPAGE)</label>
-          <input id="f-summary" type="text" placeholder="A short, honest summary in one sentence." />
-        </div>
-
-        <div class="studio-field">
-          <div class="editor-toolbar">
-            <label for="f-body">CONTENT (MARKDOWN)</label>
-            <span class="toolbar-hint">Use <code>## Heading</code>, <code>**bold**</code>, <code>*italic*</code>, <code>- list</code>, <code>[Link](https://...)</code></span>
+          <div class="preview-canvas">
+            <span id="p-category" class="tag">THE CRAFT</span>
+            <h2 id="p-title" class="preview-title">Your Post Title</h2>
+            <p id="p-summary" class="preview-summary"></p>
+            <div id="p-body" class="article-prose"></div>
           </div>
-          <textarea id="f-body" rows="16" placeholder="Write your thoughts honestly here..."></textarea>
-        </div>
-
-        <div class="studio-actions">
-          <button id="publish-btn" class="btn btn-solid" type="button">Publish / Save Post ✓</button>
-          <button id="download-md-btn" class="btn btn-ghost" type="button">Download .md</button>
-          <span id="studio-status" class="studio-status"></span>
-        </div>
-      </section>
-
-      <!-- Right: Live Preview -->
-      <section class="studio-preview">
-        <div class="studio-sidebar-head">
-          <span class="mono-tag">LIVE PREVIEW</span>
-          <a id="open-post-link" href="#" target="_blank" class="mono-date" style="display:none;">Open Page ↗</a>
-        </div>
-        <div class="preview-canvas">
-          <span id="p-category" class="mono-tag">THE CRAFT</span>
-          <h2 id="p-title" class="preview-title">Your Post Title</h2>
-          <p id="p-summary" class="preview-summary"></p>
-          <div id="p-body" class="article-prose"></div>
-        </div>
-      </section>
-    </div>
-  </main>
+        </section>
+      </div>
+    </main>
+  </div>
 
   <script src="main.js"></script>
   <script>
@@ -265,12 +271,12 @@
           body: JSON.stringify(payload)
         });
         if (!res.ok) throw new Error("Save failed");
-        statusEl.textContent = "Published to posts/" + slug + ".md ✓";
+        statusEl.textContent = "Published to posts/" + slug + ".md";
         openPostLink.style.display = "inline";
         openPostLink.href = "post.html?slug=" + encodeURIComponent(slug);
         await loadPostList();
       } catch (err) {
-        statusEl.textContent = "Saved via download fallback (run cms-server.py for 1-click save).";
+        statusEl.textContent = "Download .md or ask agent in chat to publish directly to GitHub.";
       }
     });
 
