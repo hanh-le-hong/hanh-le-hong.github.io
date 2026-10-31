@@ -1,70 +1,79 @@
 /* ==========================================================================
    AiPRIL -- Noodle-Inspired Terminal-Editorial Design System
-   100% JetBrains Mono, 20px dot-grid, 1px hairline matrices, sharp corners,
-   Winter (Near-Black + Cyber Yellow) / Spring (Drafting Paper + Amber/Yellow)
+   100% JetBrains Mono, 20px dot-grid, 1px hairline matrices, sharp corners.
+   WINTER: #192930 · #305366 · #5F8AA4 · #AAC3D6 · #B7CADB
+   SPRING: #678215 · #FCD4BE · #F8F8EF · #FFE8DE · #FD832B · #FEC62D
    ========================================================================== */
 
 :root,
 [data-theme="winter"] {
   color-scheme: dark;
-  --bg: #080808;
-  --bg-depth: #0a0a0a;
-  --surface: #111111;
-  --surface-hover: #151515;
-  --grid-line: #161616;
-  --dot-color: #222222;
-  --border: #222222;
-  --border-strong: #333333;
+  --bg: #192930;
+  --bg-depth: #132026;
+  --surface: #20343d;
+  --surface-hover: #263e49;
+  --grid-line: #2b4959;
+  --dot-color: #305366;
+  --border: #305366;
+  --border-strong: #5F8AA4;
 
-  --text: #ffffff;
-  --text-body: #cfcfcf;
-  --text-muted: #8a8a8a;
-  --text-dim: #666666;
-  --hero-sub: #444444;
+  --text: #F0F6FA;
+  --text-body: #DAE6F0;
+  --text-muted: #B7CADB;
+  --text-dim: #88AEC6;
+  --hero-sub: #5F8AA4;
 
-  --accent: #facc15;
-  --accent-hover: #fde047;
-  --accent-text: #facc15;
-  --accent-link: rgba(250, 204, 21, 0.72);
-  --accent-bg: rgba(250, 204, 21, 0.08);
-  --accent-border: rgba(250, 204, 21, 0.22);
-  --accent-glow: rgba(250, 204, 21, 0.045);
+  --accent: #B7CADB;
+  --accent-hover: #AAC3D6;
+  --accent-text: #B7CADB;
+  --accent-link: #AAC3D6;
+  --accent-bg: rgba(170, 195, 214, 0.12);
+  --accent-border: rgba(183, 202, 219, 0.32);
+  --accent-glow: rgba(183, 202, 219, 0.08);
+  --cursor-color: #B7CADB;
 
-  --btn-primary-bg: #facc15;
-  --btn-primary-fg: #080808;
-  --header-bg: rgba(8, 8, 8, 0.94);
+  --selection-bg: #AAC3D6;
+  --selection-fg: #192930;
+
+  --btn-primary-bg: #B7CADB;
+  --btn-primary-fg: #192930;
+  --header-bg: rgba(25, 41, 48, 0.92);
 
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 [data-theme="spring"] {
   color-scheme: light;
-  --bg: #fafafa;
-  --bg-depth: #f2f2ef;
-  --surface: #ffffff;
-  --surface-hover: #f5f5f2;
-  --grid-line: #e2e2de;
-  --dot-color: #d6d6d0;
-  --border: #dcdcd6;
-  --border-strong: #b8b8b0;
+  --bg: #F8F8EF;
+  --bg-depth: #FFE8DE;
+  --surface: #FFE8DE;
+  --surface-hover: #FCD4BE;
+  --grid-line: #F0C0A6;
+  --dot-color: #FCD4BE;
+  --border: #EBB89C;
+  --border-strong: #FD832B;
 
-  --text: #0a0a0a;
-  --text-body: #262626;
-  --text-muted: #595959;
-  --text-dim: #707070;
-  --hero-sub: #a1a19a;
+  --text: #222A14;
+  --text-body: #313B1E;
+  --text-muted: #55613F;
+  --text-dim: #678215;
+  --hero-sub: #678215;
 
-  --accent: #facc15;
-  --accent-hover: #eab308;
-  --accent-text: #8f5d00;
-  --accent-link: #8f5d00;
-  --accent-bg: rgba(250, 204, 21, 0.2);
-  --accent-border: rgba(143, 93, 0, 0.3);
-  --accent-glow: rgba(250, 204, 21, 0.11);
+  --accent: #FD832B;
+  --accent-hover: #FEC62D;
+  --accent-text: #587011;
+  --accent-link: #587011;
+  --accent-bg: #FFE8DE;
+  --accent-border: #FCD4BE;
+  --accent-glow: rgba(254, 198, 45, 0.18);
+  --cursor-color: #FD832B;
 
-  --btn-primary-bg: #facc15;
-  --btn-primary-fg: #0a0a0a;
-  --header-bg: rgba(250, 250, 250, 0.94);
+  --selection-bg: #FEC62D;
+  --selection-fg: #222A14;
+
+  --btn-primary-bg: #FD832B;
+  --btn-primary-fg: #222A14;
+  --header-bg: rgba(248, 248, 239, 0.92);
 }
 
 /* ==========================================================================
@@ -92,11 +101,12 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ::selection {
-  background: var(--accent);
-  color: #080808;
+  background: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 ::-webkit-scrollbar {
@@ -113,7 +123,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--border-strong);
 }
 
 a {
@@ -137,7 +147,7 @@ dd {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--cursor-color);
   outline-offset: 2px;
 }
 
@@ -194,7 +204,7 @@ dd {
 }
 
 .brand:hover {
-  color: var(--accent-text);
+  color: var(--cursor-color);
 }
 
 .header-nav {
@@ -236,7 +246,7 @@ dd {
 
 .season-switch {
   appearance: none;
-  background: transparent;
+  background: var(--surface);
   border: 1px solid var(--border);
   padding: 4px 10px;
   font-family: var(--font-mono);
@@ -247,7 +257,7 @@ dd {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
 .season-switch:hover {
@@ -258,9 +268,13 @@ dd {
   color: var(--border-strong);
 }
 
-[data-theme="winter"] .season-opt[data-season="winter"],
-[data-theme="spring"] .season-opt[data-season="spring"] {
+[data-theme="winter"] .season-opt[data-season="winter"] {
   color: var(--accent-text);
+  font-weight: 700;
+}
+
+[data-theme="spring"] .season-opt[data-season="spring"] {
+  color: #FD832B;
   font-weight: 700;
 }
 
@@ -407,7 +421,7 @@ dd {
 .cursor::after {
   content: "_";
   animation: blink 1.2s step-end infinite;
-  color: var(--accent);
+  color: var(--cursor-color);
   font-weight: 700;
 }
 
@@ -471,6 +485,7 @@ dd {
 .btn-ghost:hover {
   border-color: var(--border-strong);
   color: var(--text);
+  background: var(--surface);
 }
 
 .btn-sm {
@@ -519,7 +534,7 @@ dd {
 .quickstart-url {
   color: var(--accent-text);
   text-decoration: underline;
-  text-decoration-color: var(--accent-border);
+  text-decoration-color: var(--border-strong);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.2s;
 }
@@ -553,7 +568,7 @@ dd {
 }
 
 .quickstart-copy.is-copied {
-  color: var(--accent-text);
+  color: var(--cursor-color);
   font-weight: 700;
 }
 
@@ -604,7 +619,7 @@ dd {
 }
 
 .story-prose a:hover {
-  text-decoration-color: var(--accent-text);
+  text-decoration-color: var(--cursor-color);
 }
 
 .spec-list {
@@ -718,7 +733,7 @@ dd {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-text);
+  color: var(--cursor-color);
   flex-shrink: 0;
 }
 
@@ -774,7 +789,7 @@ dd {
 
 .feature-card:hover .card-link,
 .card-link:hover {
-  color: var(--accent-text);
+  color: var(--cursor-color);
 }
 
 .connect-card {
@@ -838,8 +853,8 @@ dd {
 }
 
 .filter-chip.active {
-  background: var(--accent);
-  color: #080808;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
   font-weight: 700;
 }
 
@@ -943,7 +958,7 @@ dd {
 }
 
 .post-row:hover .post-row-right {
-  color: var(--accent-text);
+  color: var(--cursor-color);
 }
 
 .empty-feed {
@@ -986,7 +1001,7 @@ dd {
 }
 
 .footer-top-link:hover {
-  color: var(--accent-text);
+  color: var(--cursor-color);
 }
 
 /* ==========================================================================
@@ -1094,7 +1109,7 @@ dd {
 }
 
 .article-prose a:hover {
-  text-decoration-color: var(--accent-text);
+  text-decoration-color: var(--cursor-color);
 }
 
 .article-prose :not(pre) > code {
@@ -1120,7 +1135,7 @@ dd {
   margin: 0 0 24px;
   padding: 14px 18px;
   border: 1px solid var(--border);
-  border-left: 2px solid var(--accent);
+  border-left: 2px solid var(--cursor-color);
   background: var(--accent-bg);
   color: var(--text-body);
 }
@@ -1201,7 +1216,7 @@ dd {
 }
 
 .studio-post-item:hover {
-  border-color: var(--accent);
+  border-color: var(--border-strong);
 }
 
 .studio-post-item-title {
@@ -1257,8 +1272,8 @@ dd {
 .studio-field input:focus,
 .studio-field select:focus,
 .studio-field textarea:focus {
-  outline: 1px solid var(--accent);
-  border-color: var(--accent);
+  outline: 1px solid var(--cursor-color);
+  border-color: var(--cursor-color);
 }
 
 .editor-toolbar {

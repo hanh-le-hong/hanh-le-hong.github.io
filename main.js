@@ -19,6 +19,13 @@
 
   function applySeason(season) {
     root.setAttribute("data-theme", season);
+    let metaTheme = document.querySelector('meta[name="theme-color"]');
+    if (!metaTheme) {
+      metaTheme = document.createElement("meta");
+      metaTheme.setAttribute("name", "theme-color");
+      document.head.appendChild(metaTheme);
+    }
+    metaTheme.setAttribute("content", season === "spring" ? "#F8F8EF" : "#192930");
     try {
       localStorage.setItem(STORAGE_KEY, season);
     } catch (_) {}
