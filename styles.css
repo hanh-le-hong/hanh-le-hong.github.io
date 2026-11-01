@@ -1,8 +1,7 @@
 /* ==========================================================================
-   AiPRIL -- Noodle-Inspired Terminal-Editorial Design System
-   100% JetBrains Mono, 20px dot-grid, 1px hairline matrices, sharp corners.
-   WINTER (Midnight Sapphire): #213953 · #156AA8 · #4D8CC5 · #8FB1D3 · #CDD7E2
-   SPRING (Warm Blossom):      #678215 · #FCD4BE · #F8F8EF · #FFE8DE · #FD832B · #FEC62D
+   AiPRIL -- noodle-inspired terminal-editorial design system
+   100% jetbrains mono, 20px dot-grid, 1px hairline matrices, sharp corners.
+   all-lowercase typography (except AiPRIL).
    ========================================================================== */
 
 :root,
@@ -353,7 +352,6 @@ dd {
   color: var(--accent-text);
   font-size: 0.6875rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   font-weight: 600;
 }
 
@@ -361,7 +359,6 @@ dd {
   font-size: 0.6875rem;
   color: var(--text-dim);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 .section-block {
@@ -372,7 +369,6 @@ dd {
   font-size: 0.8125rem;
   color: var(--text-dim);
   letter-spacing: 0.2em;
-  text-transform: uppercase;
   margin-bottom: 28px;
 }
 
@@ -501,7 +497,6 @@ dd {
   font-size: 0.75rem;
   color: var(--text-dim);
   letter-spacing: 0.2em;
-  text-transform: uppercase;
   margin-bottom: 8px;
 }
 
@@ -554,7 +549,6 @@ dd {
   color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  text-transform: uppercase;
   letter-spacing: 0.12em;
   cursor: pointer;
   flex-shrink: 0;
@@ -572,7 +566,7 @@ dd {
 }
 
 /* ==========================================================================
-   00 // README.md Matrix (5-Paragraph Personal Intro + Quick Specs)
+   00 // readme.md Matrix (5-Paragraph Personal Intro + Quick Specs)
    ========================================================================== */
 
 .readme-matrix {
@@ -642,7 +636,6 @@ dd {
   font-size: 0.6875rem;
   color: var(--text-dim);
   letter-spacing: 0.14em;
-  text-transform: uppercase;
   margin-bottom: 4px;
 }
 
@@ -807,7 +800,7 @@ dd {
 }
 
 /* ==========================================================================
-   03 // Writing Feed & Pillar Filter Bar
+   03 // writing Feed & Pillar Filter Bar
    ========================================================================== */
 
 .section-bar {
@@ -842,7 +835,6 @@ dd {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--text-muted);
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
@@ -866,7 +858,6 @@ dd {
   background: var(--accent-bg);
   color: var(--accent-text);
   text-decoration: none;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
@@ -998,7 +989,6 @@ dd {
   font-size: 0.75rem;
   color: var(--text-dim);
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   text-decoration: none;
 }
 
@@ -1007,7 +997,7 @@ dd {
 }
 
 /* ==========================================================================
-   Article Reader Page (/writing/<slug>/ & post.html -- Noodle Docs Aesthetic)
+   Article Reader Page (/writing/<slug>/ & post.html)
    ========================================================================== */
 
 .article-main {
@@ -1072,7 +1062,6 @@ dd {
 .article-prose h2 {
   font-size: 1.05rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--text);
   margin: 40px 0 18px;
@@ -1170,7 +1159,6 @@ dd {
   color: var(--text);
   font-weight: 700;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
   font-size: 0.75rem;
 }
 
@@ -1185,7 +1173,6 @@ dd {
   font-size: 0.6875rem;
   color: var(--text-dim);
   letter-spacing: 0.14em;
-  text-transform: uppercase;
   margin-bottom: 8px;
 }
 
@@ -1218,7 +1205,6 @@ dd {
   color: var(--text-dim);
   text-decoration: none;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .article-raw-link:hover {
@@ -1226,7 +1212,7 @@ dd {
 }
 
 /* ==========================================================================
-   CMS Studio Page (studio.html -- Local Noodle IDE)
+   CMS Studio Page (studio.html -- local noodle ide)
    ========================================================================== */
 
 .studio-badge {

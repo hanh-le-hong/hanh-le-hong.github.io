@@ -1,13 +1,7 @@
 #!/usr/bin/env python3
 """
-AiPRIL Static SEO & Agentic Publisher (zero external dependencies).
-
-Reads `posts/index.json` + `posts/<slug>.md` and pre-renders:
-  1. `writing/<slug>/index.html` (static HTML, OpenGraph, BlogPosting + BreadcrumbList Schema)
-  2. `index.html` (syncs pre-rendered `#posts-feed` links between markers)
-  3. `sitemap.xml` (clean canonical URLs + accurate `<lastmod>`, no deprecated tags)
-  4. `rss.xml` (RSS 2.0 feed)
-  5. `llms.txt` (curated site & Markdown index for AI agents)
+AiPRIL static seo & agentic publisher (zero external dependencies).
+enforces all-lowercase human-readable copy while preserving exact `AiPRIL` casing.
 """
 
 from __future__ import annotations
@@ -23,6 +17,10 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE_URL = "https://iced-latte.com"
 
 
+def lower_preserve_brand(text: str) -> str:
+    return re.sub(r"aipril", "AiPRIL", str(text or "").lower(), flags=re.IGNORECASE)
+
+
 def slugify_heading(text: str) -> str:
     clean = re.sub(r"<[^>]+>", "", text).lower()
     clean = re.sub(r"[^a-z0-9]+", "-", clean).strip("-")
@@ -30,17 +28,27 @@ def slugify_heading(text: str) -> str:
 
 
 def format_inline(text: str) -> str:
-    text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
-    text = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", text)
-    text = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", text)
-
     def replace_link(match: re.Match[str]) -> str:
-        label, url = match.group(1), match.group(2)
+        label = lower_preserve_brand(match.group(1))
+        url = match.group(2)
         if url.startswith(("http://", "https://")) and not url.startswith(SITE_URL):
             return f'<a href="{url}" target="_blank" rel="noopener noreferrer">{label}</a>'
         return f'<a href="{url}">{label}</a>'
 
-    return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", replace_link, text)
+    # Preserve exact link URLs while lowercasing visible prose around them
+    parts: list[str] = []
+    last = 0
+    for m in re.finditer(r"\[([^\]]+)\]\(([^)]+)\)", text):
+        parts.append(lower_preserve_brand(text[last:m.start()]))
+        parts.append(replace_link(m))
+        last = m.end()
+    parts.append(lower_preserve_brand(text[last:]))
+    joined = "".join(parts)
+
+    joined = re.sub(r"`([^`]+)`", r"<code>\1</code>", joined)
+    joined = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", joined)
+    joined = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", joined)
+    return joined
 
 
 def render_table(table_lines: list[str]) -> str:
@@ -65,7 +73,7 @@ def render_markdown(md: str) -> str:
     safe = html.escape(md, quote=False)
 
     def stash_code(match: re.Match[str]) -> str:
-        code = match.group(2).strip()
+        code = lower_preserve_brand(match.group(2).strip())
         token = f"@@CODEBLOCK_{len(code_blocks)}@@"
         code_blocks.append(f'<pre class="prose-code"><code>{code}</code></pre>')
         return f"\n{token}\n"
@@ -151,19 +159,18 @@ def render_markdown(md: str) -> str:
 
 def build_article_page(post: dict, body_html: str) -> str:
     slug = post["slug"]
-    title = post["title"]
-    summary = post.get("summary", "")
+    title = lower_preserve_brand(post["title"])
+    summary = lower_preserve_brand(post.get("summary", ""))
     date_pub = post["date"]
     date_mod = post.get("updated", date_pub)
-    category = post.get("category", "Writing")
-    read_time = post.get("readTime", "3 min read")
+    category = lower_preserve_brand(post.get("category", "writing"))
+    read_time = lower_preserve_brand(post.get("readTime", "3 min read"))
     canonical = f"{SITE_URL}/writing/{slug}/"
     raw_md_url = f"{SITE_URL}/posts/{slug}.md"
 
     esc_title = html.escape(title, quote=True)
     esc_summary = html.escape(summary, quote=True)
     esc_cat = html.escape(category, quote=True)
-    esc_cat_upper = html.escape(category.upper(), quote=True)
 
     schema = {
         "@context": "https://schema.org",
@@ -180,8 +187,8 @@ def build_article_page(post: dict, body_html: str) -> str:
                 "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
                 "author": {
                     "@type": "Person",
-                    "name": "April",
-                    "alternateName": ["AiPRIL", "Hanh Le", "Le Hong Hanh"],
+                    "name": "april",
+                    "alternateName": ["AiPRIL", "hanh le", "le hong hanh"],
                     "url": f"{SITE_URL}/",
                     "email": "drink@iced-latte.com",
                     "sameAs": [
@@ -192,15 +199,15 @@ def build_article_page(post: dict, body_html: str) -> str:
                 },
                 "publisher": {
                     "@type": "Person",
-                    "name": "April (AiPRIL)",
+                    "name": "april (AiPRIL)",
                     "url": f"{SITE_URL}/",
                 },
             },
             {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
-                    {"@type": "ListItem", "position": 2, "name": "Writing", "item": f"{SITE_URL}/#writing"},
+                    {"@type": "ListItem", "position": 1, "name": "home", "item": f"{SITE_URL}/"},
+                    {"@type": "ListItem", "position": 2, "name": "writing", "item": f"{SITE_URL}/#writing"},
                     {"@type": "ListItem", "position": 3, "name": title, "item": canonical},
                 ],
             },
@@ -215,9 +222,9 @@ def build_article_page(post: dict, body_html: str) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{esc_title} | AiPRIL</title>
   <meta name="description" content="{esc_summary}" />
-  <meta name="author" content="April (Hanh Le)" />
+  <meta name="author" content="april (hanh le)" />
   <link rel="canonical" href="{canonical}" />
-  <link rel="alternate" type="application/rss+xml" title="AiPRIL RSS Feed" href="{SITE_URL}/rss.xml" />
+  <link rel="alternate" type="application/rss+xml" title="AiPRIL rss feed" href="{SITE_URL}/rss.xml" />
   <link rel="alternate" type="text/markdown" href="{raw_md_url}" />
 
   <meta property="og:type" content="article" />
@@ -227,7 +234,7 @@ def build_article_page(post: dict, body_html: str) -> str:
   <meta property="og:site_name" content="AiPRIL" />
   <meta property="article:published_time" content="{date_pub}" />
   <meta property="article:modified_time" content="{date_mod}" />
-  <meta property="article:author" content="April (Hanh Le)" />
+  <meta property="article:author" content="april (hanh le)" />
   <meta property="article:section" content="{esc_cat}" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="{esc_title}" />
@@ -248,22 +255,22 @@ def build_article_page(post: dict, body_html: str) -> str:
     <header class="header">
       <div class="header-inner">
         <div class="header-left">
-          <a href="../../" class="brand" aria-label="AiPRIL Home">AiPRIL</a>
-          <nav class="header-nav" aria-label="Main Navigation">
-            <a href="../../#writing" class="nav-link">&lt;- All Writing</a>
-            <a href="../../#about" class="nav-link">About</a>
-            <a href="../../#craft" class="nav-link">Craft</a>
-            <a href="../../#lab" class="nav-link">Lab</a>
-            <a href="../../#human" class="nav-link">Human</a>
-            <a href="../../#connect" class="nav-link">Connect</a>
+          <a href="../../" class="brand" aria-label="AiPRIL home">AiPRIL</a>
+          <nav class="header-nav" aria-label="main navigation">
+            <a href="../../#writing" class="nav-link">&lt;- all writing</a>
+            <a href="../../#about" class="nav-link">about</a>
+            <a href="../../#craft" class="nav-link">craft</a>
+            <a href="../../#lab" class="nav-link">lab</a>
+            <a href="../../#human" class="nav-link">human</a>
+            <a href="../../#connect" class="nav-link">connect</a>
           </nav>
         </div>
 
         <div class="header-right">
-          <button id="theme-toggle" class="season-switch" type="button" aria-label="Switch between Winter and Spring mode">
-            <span class="season-opt" data-season="winter">WINTER</span>
+          <button id="theme-toggle" class="season-switch" type="button" aria-label="switch between winter and spring mode">
+            <span class="season-opt" data-season="winter">winter</span>
             <span class="season-sep">/</span>
-            <span class="season-opt" data-season="spring">SPRING</span>
+            <span class="season-opt" data-season="spring">spring</span>
           </button>
           <div class="divider-v" aria-hidden="true"></div>
           <a
@@ -272,7 +279,7 @@ def build_article_page(post: dict, body_html: str) -> str:
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub
+            github
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M7 7h10v10" />
               <path d="M7 17 17 7" />
@@ -281,19 +288,19 @@ def build_article_page(post: dict, body_html: str) -> str:
         </div>
       </div>
 
-      <nav class="mobile-nav" aria-label="Mobile Navigation">
-        <a href="../../#writing" class="nav-link">&lt;- All Writing</a>
-        <a href="../../#about" class="nav-link">About</a>
-        <a href="../../#craft" class="nav-link">Craft</a>
-        <a href="../../#lab" class="nav-link">Lab</a>
-        <a href="../../#connect" class="nav-link">Connect</a>
+      <nav class="mobile-nav" aria-label="mobile navigation">
+        <a href="../../#writing" class="nav-link">&lt;- all writing</a>
+        <a href="../../#about" class="nav-link">about</a>
+        <a href="../../#craft" class="nav-link">craft</a>
+        <a href="../../#lab" class="nav-link">lab</a>
+        <a href="../../#connect" class="nav-link">connect</a>
       </nav>
     </header>
 
     <main class="article-main">
       <article class="article-container">
         <div class="article-meta-bar">
-          <span class="tag">{esc_cat_upper}</span>
+          <span class="tag">{esc_cat}</span>
           <span class="meta-dot">·</span>
           <time datetime="{date_pub}" class="mono-date">{date_pub}</time>
           <span class="meta-dot">·</span>
@@ -307,30 +314,30 @@ def build_article_page(post: dict, body_html: str) -> str:
 {body_html}
         </div>
 
-        <aside class="article-author-box" aria-label="About the Author">
-          <p class="article-author-label">WRITTEN BY APRIL (HANH LE) // MARKETER &amp; BUILDER</p>
+        <aside class="article-author-box" aria-label="about the author">
+          <p class="article-author-label">written by april (hanh le) // marketer &amp; builder</p>
           <p class="article-author-bio">
-            9-to-5 marketer and operator solving business problems through marketing, product, and analysis. Born in Spring (craft), chasing Winter (systems).
+            9-to-5 marketer and operator solving business problems through marketing, product, and analysis. born in spring (craft), chasing winter (systems).
           </p>
           <div class="article-author-links">
-            <a href="https://www.upwork.com/freelancers/lehonghanh" target="_blank" rel="noopener noreferrer" class="btn-primary btn-sm">Upwork Profile -&gt;</a>
-            <a href="https://www.linkedin.com/in/hanhlehong/" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-sm">LinkedIn</a>
+            <a href="https://www.upwork.com/freelancers/lehonghanh" target="_blank" rel="noopener noreferrer" class="btn-primary btn-sm">upwork profile -&gt;</a>
+            <a href="https://www.linkedin.com/in/hanhlehong/" target="_blank" rel="noopener noreferrer" class="btn-secondary btn-sm">linkedin</a>
             <a href="mailto:drink@iced-latte.com" class="btn-secondary btn-sm">drink@iced-latte.com</a>
           </div>
         </aside>
 
         <div class="article-footer-nav">
-          <a href="../../#writing" class="btn-secondary">&lt;- Back to Writing</a>
-          <a href="../../posts/{html.escape(slug, quote=True)}.md" class="article-raw-link">View Raw .md</a>
-          <a href="../../studio.html?edit={html.escape(slug, quote=True)}" class="btn-secondary local-only" hidden>Edit in Studio</a>
+          <a href="../../#writing" class="btn-secondary">&lt;- back to writing</a>
+          <a href="../../posts/{html.escape(slug, quote=True)}.md" class="article-raw-link">view raw .md</a>
+          <a href="../../studio.html?edit={html.escape(slug, quote=True)}" class="btn-secondary local-only" hidden>edit in studio</a>
         </div>
       </article>
     </main>
 
     <footer class="footer">
       <div class="footer-inner">
-        <span class="footer-text">AiPRIL · ICED-LATTE.COM © 2026</span>
-        <a href="../../" class="footer-text footer-top-link">HOME ↑</a>
+        <span class="footer-text">AiPRIL · iced-latte.com © 2026</span>
+        <a href="../../" class="footer-text footer-top-link">home ↑</a>
       </div>
     </footer>
   </div>
@@ -347,11 +354,11 @@ def build_feed_rows(posts: list[dict]) -> str:
     rows = []
     for p in posts:
         slug = html.escape(p["slug"], quote=True)
-        cat = html.escape(p.get("category", "Writing"))
+        cat = html.escape(lower_preserve_brand(p.get("category", "writing")))
         date = html.escape(p["date"])
-        title = html.escape(p["title"])
-        summary = html.escape(p.get("summary", ""))
-        read_time = html.escape(p.get("readTime", "3 min read"))
+        title = html.escape(lower_preserve_brand(p["title"]))
+        summary = html.escape(lower_preserve_brand(p.get("summary", "")))
+        read_time = html.escape(lower_preserve_brand(p.get("readTime", "3 min read")))
         rows.append(
             f'            <a href="writing/{slug}/" class="post-row">\n'
             f'              <div class="post-row-meta">\n'
@@ -395,21 +402,21 @@ def build_rss(posts: list[dict]) -> str:
         pub_rfc = format_datetime(dt.datetime(d.year, d.month, d.day, tzinfo=dt.timezone.utc))
         items.append(
             "    <item>\n"
-            f"      <title>{html.escape(p['title'])}</title>\n"
+            f"      <title>{html.escape(lower_preserve_brand(p['title']))}</title>\n"
             f"      <link>{link}</link>\n"
             f"      <guid isPermaLink=\"true\">{link}</guid>\n"
             f"      <pubDate>{pub_rfc}</pubDate>\n"
-            f"      <category>{html.escape(p.get('category', 'Writing'))}</category>\n"
-            f"      <description>{html.escape(p.get('summary', ''))}</description>\n"
+            f"      <category>{html.escape(lower_preserve_brand(p.get('category', 'writing')))}</category>\n"
+            f"      <description>{html.escape(lower_preserve_brand(p.get('summary', '')))}</description>\n"
             "    </item>"
         )
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         "  <channel>\n"
-        "    <title>AiPRIL | April (Hanh Le)</title>\n"
+        "    <title>AiPRIL | april (hanh le)</title>\n"
         f"    <link>{SITE_URL}/</link>\n"
-        "    <description>Notes on marketing craft, marketing systems, product growth, and building tiny projects with AI.</description>\n"
+        "    <description>notes on marketing craft, marketing systems, product growth, and building tiny projects with ai.</description>\n"
         "    <language>en</language>\n"
         f'    <atom:link href="{SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />\n'
         + "\n".join(items)
@@ -421,35 +428,35 @@ def build_llms_txt(posts: list[dict]) -> str:
     post_lines = []
     for p in posts:
         slug = p["slug"]
-        title = p["title"]
-        summary = p.get("summary", "")
+        title = lower_preserve_brand(p["title"])
+        summary = lower_preserve_brand(p.get("summary", ""))
         post_lines.append(
-            f"- [{title}]({SITE_URL}/writing/{slug}/): {summary} (Markdown: {SITE_URL}/posts/{slug}.md)"
+            f"- [{title}]({SITE_URL}/writing/{slug}/): {summary} (markdown: {SITE_URL}/posts/{slug}.md)"
         )
-    posts_section = "\n".join(post_lines) if post_lines else "- New essays coming soon."
+    posts_section = "\n".join(post_lines) if post_lines else "- new essays coming soon."
     return f"""# AiPRIL (iced-latte.com)
 
-> Personal website and working notebook of April (Hanh Le), a marketer and operator moving deeper into marketing systems, product growth, measurement, and AI workflows.
+> personal website and working notebook of april (hanh le), a marketer and operator moving deeper into marketing systems, product growth, measurement, and ai workflows.
 
-## Core Pages
-- [Homepage & Profile]({SITE_URL}/): Overview of April's background, marketing craft, tiny AI builds, and contact details.
-- [RSS Feed]({SITE_URL}/rss.xml): XML feed of published essays and working notes.
-- [Sitemap]({SITE_URL}/sitemap.xml): Canonical URL index.
+## core pages
+- [homepage & profile]({SITE_URL}/): overview of april's background, marketing craft, tiny ai builds, and contact details.
+- [rss feed]({SITE_URL}/rss.xml): xml feed of published essays and working notes.
+- [sitemap]({SITE_URL}/sitemap.xml): canonical url index.
 
-## Writing & Working Notes
+## writing & working notes
 {posts_section}
 
-## Lab Projects
-- [Marketing Systems Lab](https://github.com/hanh-le-hong/marketing-systems-lab): Public repository practising measurement, KPI trees, AI fluency, and marketing automation.
-- [Snapcard](https://snapcard-dc0ca.web.app/): Lightweight web app for creating and sending digital postcards with a single link.
+## lab projects
+- [marketing systems lab](https://github.com/hanh-le-hong/marketing-systems-lab): public repository practising measurement, kpi trees, ai fluency, and marketing automation.
+- [snapcard](https://snapcard-dc0ca.web.app/): lightweight web app for creating and sending digital postcards with a single link.
 
-## Author & Contact
-- Name: April (Hanh Le / Le Hong Hanh)
-- Role: Marketer & Operator (M.S. in Marketing Management)
-- Email: drink@iced-latte.com
-- Upwork: https://www.upwork.com/freelancers/lehonghanh
-- LinkedIn: https://www.linkedin.com/in/hanhlehong/
-- GitHub: https://github.com/hanh-le-hong
+## author & contact
+- name: april (hanh le / le hong hanh)
+- role: marketer & operator (m.s. in marketing management)
+- email: drink@iced-latte.com
+- upwork: https://www.upwork.com/freelancers/lehonghanh
+- linkedin: https://www.linkedin.com/in/hanhlehong/
+- github: https://github.com/hanh-le-hong
 """
 
 
@@ -468,7 +475,6 @@ def main() -> None:
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "index.html").write_text(build_article_page(post, body_html), encoding="utf-8")
 
-    # Sync pre-rendered #posts-feed in index.html
     index_html_path = ROOT / "index.html"
     if index_html_path.exists():
         raw_index = index_html_path.read_text(encoding="utf-8")

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>CMS Studio | AiPRIL</title>
+  <title>cms studio | AiPRIL</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,20 +16,20 @@
     <header class="header">
       <div class="header-inner">
         <div class="header-left">
-          <a href="index.html" class="brand" aria-label="AiPRIL Home">
+          <a href="index.html" class="brand" aria-label="AiPRIL home">
             <span>AiPRIL</span>
-            <span class="studio-badge">STUDIO</span>
+            <span class="studio-badge">studio</span>
           </a>
           <nav class="header-nav">
-            <a href="index.html" class="nav-link">&lt;- View Website</a>
+            <a href="index.html" class="nav-link">&lt;- view website</a>
           </nav>
         </div>
 
         <div class="header-right">
           <button id="theme-toggle" class="season-switch" type="button">
-            <span class="season-opt" data-season="winter">WINTER</span>
+            <span class="season-opt" data-season="winter">winter</span>
             <span class="season-sep">/</span>
-            <span class="season-opt" data-season="spring">SPRING</span>
+            <span class="season-opt" data-season="spring">spring</span>
           </button>
         </div>
       </div>
@@ -37,72 +37,69 @@
 
     <main class="studio-main">
       <div class="container studio-layout">
-        <!-- Left Sidebar: Existing Posts -->
         <aside class="studio-sidebar">
           <div class="studio-sidebar-head">
-            <span class="tag">ALL POSTS</span>
-            <button id="new-post-btn" class="btn-solid btn-sm" type="button">+ New</button>
+            <span class="tag">all posts</span>
+            <button id="new-post-btn" class="btn-solid btn-sm" type="button">+ new</button>
           </div>
           <div id="studio-post-list" class="studio-post-list"></div>
         </aside>
 
-        <!-- Center: Markdown Editor -->
         <section class="studio-editor">
           <div class="studio-form-row">
             <div class="studio-field">
-              <label for="f-title">TITLE</label>
-              <input id="f-title" type="text" placeholder="e.g. Why I'm Learning SQL as a Marketer" />
+              <label for="f-title">title</label>
+              <input id="f-title" type="text" placeholder="e.g. why i'm learning sql as a marketer" />
             </div>
           </div>
 
           <div class="studio-form-grid">
             <div class="studio-field">
-              <label for="f-slug">URL SLUG (AUTO)</label>
+              <label for="f-slug">url slug (auto)</label>
               <input id="f-slug" type="text" placeholder="why-im-learning-sql" />
             </div>
             <div class="studio-field">
-              <label for="f-category">PILLAR / CATEGORY</label>
+              <label for="f-category">pillar / category</label>
               <select id="f-category">
-                <option value="The Craft">01 / The Craft (Work &amp; Marketing)</option>
-                <option value="The Lab">02 / The Lab (90-9-1 Builds &amp; AI)</option>
-                <option value="The Human">03 / The Human (Life, Chess, Travel)</option>
+                <option value="the craft">01 / the craft (work &amp; marketing)</option>
+                <option value="the lab">02 / the lab (90-9-1 builds &amp; ai)</option>
+                <option value="the human">03 / the human (life, chess, travel)</option>
               </select>
             </div>
             <div class="studio-field">
-              <label for="f-date">DATE</label>
+              <label for="f-date">date</label>
               <input id="f-date" type="date" />
             </div>
           </div>
 
           <div class="studio-field">
-            <label for="f-summary">ONE-SENTENCE SUMMARY (SHOWN ON HOMEPAGE)</label>
-            <input id="f-summary" type="text" placeholder="A short, honest summary in one sentence." />
+            <label for="f-summary">one-sentence summary (shown on homepage)</label>
+            <input id="f-summary" type="text" placeholder="a short, honest summary in one sentence." />
           </div>
 
           <div class="studio-field">
             <div class="editor-toolbar">
-              <label for="f-body">CONTENT (MARKDOWN)</label>
-              <span class="toolbar-hint">Use <code>## Heading</code>, <code>**bold**</code>, <code>*italic*</code>, <code>- list</code>, <code>[Link](https://...)</code></span>
+              <label for="f-body">content (markdown)</label>
+              <span class="toolbar-hint">use <code>## heading</code>, <code>**bold**</code>, <code>*italic*</code>, <code>- list</code>, <code>[link](https://...)</code></span>
             </div>
-            <textarea id="f-body" rows="16" placeholder="Write your thoughts honestly here..."></textarea>
+            <textarea id="f-body" rows="16" placeholder="write your thoughts honestly here..."></textarea>
           </div>
 
           <div class="studio-actions">
-            <button id="publish-btn" class="btn-solid" type="button">Publish / Save Post</button>
-            <button id="download-md-btn" class="btn-ghost" type="button">Download .md</button>
+            <button id="publish-btn" class="btn-solid" type="button">publish / save post</button>
+            <button id="download-md-btn" class="btn-ghost" type="button">download .md</button>
             <span id="studio-status" class="studio-status"></span>
           </div>
         </section>
 
-        <!-- Right: Live Preview -->
         <section class="studio-preview">
           <div class="studio-sidebar-head">
-            <span class="tag">LIVE PREVIEW</span>
-            <a id="open-post-link" href="#" target="_blank" class="mono-date" style="display:none;">Open Page ↗</a>
+            <span class="tag">live preview</span>
+            <a id="open-post-link" href="#" target="_blank" class="mono-date" style="display:none;">open page ↗</a>
           </div>
           <div class="preview-canvas">
-            <span id="p-category" class="tag">THE CRAFT</span>
-            <h2 id="p-title" class="preview-title">Your Post Title</h2>
+            <span id="p-category" class="tag">the craft</span>
+            <h2 id="p-title" class="preview-title">your post title</h2>
             <p id="p-summary" class="preview-summary"></p>
             <div id="p-body" class="article-prose"></div>
           </div>
@@ -128,6 +125,10 @@
 
     dateEl.value = new Date().toISOString().slice(0, 10);
 
+    function lowerPreserveBrand(str) {
+      return String(str || "").toLowerCase().replace(/aipril/gi, "AiPRIL");
+    }
+
     function slugify(str) {
       return str
         .toLowerCase()
@@ -152,7 +153,7 @@
     }
 
     function renderPreviewMarkdown(md) {
-      let html = md.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      let html = lowerPreserveBrand(md).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
       const lines = html.split("\n");
       const out = [];
       for (const raw of lines) {
@@ -167,9 +168,9 @@
     }
 
     function updatePreview() {
-      document.getElementById("p-category").textContent = catEl.value.toUpperCase();
-      document.getElementById("p-title").textContent = titleEl.value || "Your Post Title";
-      document.getElementById("p-summary").textContent = summaryEl.value || "";
+      document.getElementById("p-category").textContent = lowerPreserveBrand(catEl.value);
+      document.getElementById("p-title").textContent = lowerPreserveBrand(titleEl.value) || "your post title";
+      document.getElementById("p-summary").textContent = lowerPreserveBrand(summaryEl.value) || "";
       document.getElementById("p-body").innerHTML = renderPreviewMarkdown(bodyEl.value);
     }
 
@@ -194,8 +195,8 @@
           .map(
             (p) => `
           <div class="studio-post-item" data-slug="${p.slug}">
-            <div class="studio-post-item-title">${p.title}</div>
-            <div class="studio-post-item-meta">${p.category} · ${p.date}</div>
+            <div class="studio-post-item-title">${lowerPreserveBrand(p.title)}</div>
+            <div class="studio-post-item-meta">${lowerPreserveBrand(p.category)} · ${p.date}</div>
           </div>
         `
           )
@@ -211,17 +212,17 @@
       const meta = allPosts.find((p) => p.slug === slug);
       if (!meta) return;
       slugManuallyEdited = true;
-      titleEl.value = meta.title;
+      titleEl.value = lowerPreserveBrand(meta.title);
       slugEl.value = meta.slug;
-      catEl.value = meta.category;
+      catEl.value = String(meta.category || "the craft").toLowerCase();
       dateEl.value = meta.date;
-      summaryEl.value = meta.summary || "";
+      summaryEl.value = lowerPreserveBrand(meta.summary || "");
       openPostLink.style.display = "inline";
-      openPostLink.href = "post.html?slug=" + encodeURIComponent(slug);
+      openPostLink.href = "writing/" + encodeURIComponent(slug) + "/";
 
       try {
         const res = await fetch("posts/" + encodeURIComponent(slug) + ".md?t=" + Date.now());
-        bodyEl.value = await res.text();
+        bodyEl.value = lowerPreserveBrand(await res.text());
       } catch (e) {
         bodyEl.value = "";
       }
@@ -232,25 +233,25 @@
       slugManuallyEdited = false;
       titleEl.value = "";
       slugEl.value = "";
-      catEl.value = "The Craft";
+      catEl.value = "the craft";
       dateEl.value = new Date().toISOString().slice(0, 10);
       summaryEl.value = "";
       bodyEl.value = "";
       openPostLink.style.display = "none";
-      statusEl.textContent = "Ready for a new post.";
+      statusEl.textContent = "ready for a new post.";
       updatePreview();
     });
 
     document.getElementById("publish-btn").addEventListener("click", async () => {
-      const title = titleEl.value.trim();
+      const title = lowerPreserveBrand(titleEl.value.trim());
       const slug = slugEl.value.trim() || slugify(title);
-      const category = catEl.value;
+      const category = lowerPreserveBrand(catEl.value);
       const date = dateEl.value;
-      const summary = summaryEl.value.trim();
-      const content = bodyEl.value;
+      const summary = lowerPreserveBrand(summaryEl.value.trim());
+      const content = lowerPreserveBrand(bodyEl.value);
 
       if (!title || !slug || !content.trim()) {
-        statusEl.textContent = "Please fill in Title and Content.";
+        statusEl.textContent = "please fill in title and content.";
         return;
       }
 
@@ -264,26 +265,26 @@
         content
       };
 
-      statusEl.textContent = "Saving...";
+      statusEl.textContent = "saving...";
       try {
         const res = await fetch("/api/posts", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
-        if (!res.ok) throw new Error("Save failed");
-        statusEl.textContent = "Published to posts/" + slug + ".md";
+        if (!res.ok) throw new Error("save failed");
+        statusEl.textContent = "published to posts/" + slug + ".md";
         openPostLink.style.display = "inline";
         openPostLink.href = "post.html?slug=" + encodeURIComponent(slug);
         await loadPostList();
       } catch (err) {
-        statusEl.textContent = "Download .md or ask agent in chat to publish directly to GitHub.";
+        statusEl.textContent = "download .md or ask agent in chat to publish directly to github.";
       }
     });
 
     document.getElementById("download-md-btn").addEventListener("click", () => {
       const slug = slugEl.value.trim() || "new-post";
-      const blob = new Blob([bodyEl.value], { type: "text/markdown;charset=utf-8" });
+      const blob = new Blob([lowerPreserveBrand(bodyEl.value)], { type: "text/markdown;charset=utf-8" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
       a.download = slug + ".md";

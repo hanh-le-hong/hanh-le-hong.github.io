@@ -1,5 +1,5 @@
 // ==========================================================================
-// AiPRIL -- WINTER (DEFAULT) / SPRING SWITCHER, TERMINAL COPY & CMS LOADER
+// AiPRIL -- winter (default) / spring switcher, terminal copy & cms loader
 // ==========================================================================
 
 (function () {
@@ -53,20 +53,20 @@
     });
   }
 
-  // Quick-copy email button in Noodle-style terminal strip
+  // Quick-copy email button in terminal strip
   const copyBtn = document.getElementById("copy-email-btn");
   if (copyBtn) {
     copyBtn.addEventListener("click", function () {
       const text = copyBtn.getAttribute("data-copy") || "drink@iced-latte.com";
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(function () {
-          copyBtn.textContent = "Copied!";
+          copyBtn.textContent = "copied!";
           copyBtn.classList.add("is-copied");
           if (typeof window.aiprilTrack === "function") {
             window.aiprilTrack("email_copied", { location: "hero_terminal" });
           }
           setTimeout(function () {
-            copyBtn.textContent = "Copy";
+            copyBtn.textContent = "copy";
             copyBtn.classList.remove("is-copied");
           }, 2000);
         });
@@ -74,8 +74,14 @@
     });
   }
 
-  function escapeHtml(str) {
+  function normalizeBrandLower(str) {
     return String(str || "")
+      .toLowerCase()
+      .replace(/aipril/gi, "AiPRIL");
+  }
+
+  function escapeHtml(str) {
+    return normalizeBrandLower(str)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
@@ -93,17 +99,18 @@
 
   function renderFeed(filterCategory) {
     if (!feedEl) return;
+    const target = String(filterCategory || "all").toLowerCase();
     const list =
-      !filterCategory || filterCategory === "all"
+      !target || target === "all"
         ? allPosts
         : allPosts.filter(function (p) {
-            return p.category === filterCategory;
+            return String(p.category || "").toLowerCase() === target;
           });
 
     if (list.length === 0) {
       feedEl.innerHTML = isLocal
-        ? '<p class="empty-feed">No notes filed under this pillar yet. <a href="studio.html">Write the first one in Studio -&gt;</a></p>'
-        : '<p class="empty-feed">No notes filed under this pillar yet. New essays coming soon.</p>';
+        ? '<p class="empty-feed">no notes filed under this pillar yet. <a href="studio.html">write the first one in studio -&gt;</a></p>'
+        : '<p class="empty-feed">no notes filed under this pillar yet. new essays coming soon.</p>';
       return;
     }
 
@@ -155,7 +162,7 @@
 
     filterBtns.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        const filterVal = btn.getAttribute("data-filter") || "all";
+        const filterVal = (btn.getAttribute("data-filter") || "all").toLowerCase();
         filterBtns.forEach(function (b) {
           b.classList.remove("active");
         });

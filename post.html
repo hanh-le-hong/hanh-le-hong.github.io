@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, follow" />
-  <title>Writing | AiPRIL</title>
+  <title>writing | AiPRIL</title>
   <link id="canonical-link" rel="canonical" href="https://iced-latte.com/" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>
-    // On production, redirect legacy post.html?slug=<slug> URLs cleanly to /writing/<slug>/
     (function () {
       var host = window.location.hostname;
       if (host !== "localhost" && host !== "127.0.0.1") {
@@ -30,21 +29,21 @@
     <header class="header">
       <div class="header-inner">
         <div class="header-left">
-          <a href="index.html" class="brand" aria-label="AiPRIL Home">AiPRIL</a>
-          <nav class="header-nav" aria-label="Main Navigation">
-            <a href="index.html#writing" class="nav-link">&lt;- All Writing</a>
-            <a href="index.html#about" class="nav-link">About</a>
-            <a href="index.html#craft" class="nav-link">Craft</a>
-            <a href="index.html#lab" class="nav-link">Lab</a>
-            <a href="index.html#human" class="nav-link">Human</a>
+          <a href="index.html" class="brand" aria-label="AiPRIL home">AiPRIL</a>
+          <nav class="header-nav" aria-label="main navigation">
+            <a href="index.html#writing" class="nav-link">&lt;- all writing</a>
+            <a href="index.html#about" class="nav-link">about</a>
+            <a href="index.html#craft" class="nav-link">craft</a>
+            <a href="index.html#lab" class="nav-link">lab</a>
+            <a href="index.html#human" class="nav-link">human</a>
           </nav>
         </div>
 
         <div class="header-right">
-          <button id="theme-toggle" class="season-switch" type="button" aria-label="Switch between Winter and Spring mode">
-            <span class="season-opt" data-season="winter">WINTER</span>
+          <button id="theme-toggle" class="season-switch" type="button" aria-label="switch between winter and spring mode">
+            <span class="season-opt" data-season="winter">winter</span>
             <span class="season-sep">/</span>
-            <span class="season-opt" data-season="spring">SPRING</span>
+            <span class="season-opt" data-season="spring">spring</span>
           </button>
         </div>
       </div>
@@ -53,29 +52,29 @@
     <main class="article-main">
       <article class="article-container">
         <div class="article-meta-bar">
-          <span id="post-category" class="tag">WRITING</span>
+          <span id="post-category" class="tag">writing</span>
           <span class="meta-dot">·</span>
           <time id="post-date" class="mono-date"></time>
           <span class="meta-dot">·</span>
           <span id="post-readtime" class="mono-date"></span>
         </div>
 
-        <h1 id="post-title" class="article-title">Loading...</h1>
+        <h1 id="post-title" class="article-title">loading...</h1>
         <p id="post-summary" class="article-lead"></p>
 
         <div id="post-body" class="article-prose"></div>
 
         <div class="article-footer-nav">
-          <a href="index.html#writing" class="btn-secondary">&lt;- Back to Writing</a>
-          <a href="studio.html" id="edit-post-link" class="btn-secondary local-only" hidden>Edit in Studio</a>
+          <a href="index.html#writing" class="btn-secondary">&lt;- back to writing</a>
+          <a href="studio.html" id="edit-post-link" class="btn-secondary local-only" hidden>edit in studio</a>
         </div>
       </article>
     </main>
 
     <footer class="footer">
       <div class="footer-inner">
-        <span class="footer-text">AiPRIL · ICED-LATTE.COM © 2026</span>
-        <a href="index.html" class="footer-text footer-top-link">HOME ↑</a>
+        <span class="footer-text">AiPRIL · iced-latte.com © 2026</span>
+        <a href="index.html" class="footer-text footer-top-link">home ↑</a>
       </div>
     </footer>
   </div>
@@ -84,15 +83,19 @@
   <script src="analytics.js"></script>
   <script src="main.js"></script>
   <script>
+    function lowerPreserveBrand(str) {
+      return String(str || "").toLowerCase().replace(/aipril/gi, "AiPRIL");
+    }
+
     function renderMarkdown(md) {
       const codeBlocks = [];
-      let safe = md
+      let safe = lowerPreserveBrand(md)
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
 
       safe = safe.replace(/```(\w*)\n([\s\S]*?)```/g, function (_, _lang, code) {
-        const token = "@@CODEBLOCK_" + codeBlocks.length + "@@";
+        const token = "@@codeblock_" + codeBlocks.length + "@@";
         codeBlocks.push('<pre class="prose-code"><code>' + code.trim() + "</code></pre>");
         return "\n" + token + "\n";
       });
@@ -108,7 +111,7 @@
           if (inList) { out.push("</" + listType + ">"); inList = false; }
           continue;
         }
-        const codeMatch = line.match(/^@@CODEBLOCK_(\d+)@@$/);
+        const codeMatch = line.match(/^@@codeblock_(\d+)@@$/);
         if (codeMatch) {
           if (inList) { out.push("</" + listType + ">"); inList = false; }
           out.push(codeBlocks[Number(codeMatch[1])]);
@@ -156,7 +159,7 @@
       const params = new URLSearchParams(window.location.search);
       const slug = params.get("slug");
       if (!slug) {
-        document.getElementById("post-title").textContent = "Post not found";
+        document.getElementById("post-title").textContent = "post not found";
         return;
       }
       const canonicalEl = document.getElementById("canonical-link");
@@ -173,17 +176,18 @@
         const meta = posts.find(function (p) { return p.slug === slug; });
         const md = await mdRes.text();
         if (meta) {
-          document.title = meta.title + " | AiPRIL";
-          document.getElementById("post-title").textContent = meta.title;
-          document.getElementById("post-category").textContent = meta.category.toUpperCase();
+          const titleLower = lowerPreserveBrand(meta.title);
+          document.title = titleLower + " | AiPRIL";
+          document.getElementById("post-title").textContent = titleLower;
+          document.getElementById("post-category").textContent = lowerPreserveBrand(meta.category);
           document.getElementById("post-date").textContent = meta.date;
-          document.getElementById("post-readtime").textContent = meta.readTime || "3 min read";
-          document.getElementById("post-summary").textContent = meta.summary || "";
+          document.getElementById("post-readtime").textContent = lowerPreserveBrand(meta.readTime || "3 min read");
+          document.getElementById("post-summary").textContent = lowerPreserveBrand(meta.summary || "");
           document.getElementById("edit-post-link").href = "studio.html?edit=" + encodeURIComponent(slug);
         }
         document.getElementById("post-body").innerHTML = renderMarkdown(md);
       } catch (_err) {
-        document.getElementById("post-title").textContent = "Could not load article.";
+        document.getElementById("post-title").textContent = "could not load article.";
       }
     }
 
