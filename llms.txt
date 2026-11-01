@@ -1,24 +1,24 @@
 # AiPRIL (iced-latte.com)
 
-> Personal website and working notebook of April (Hanh Le), a marketer and operator moving deeper into marketing systems, product growth, measurement, and AI workflows.
+> personal website and working notebook of april (hanh le), a marketer and operator moving deeper into marketing systems, product growth, measurement, and ai workflows.
 
-## Core Pages
-- [Homepage & Profile](https://iced-latte.com/): Overview of April's background, marketing craft, tiny AI builds, and contact details.
-- [RSS Feed](https://iced-latte.com/rss.xml): XML feed of published essays and working notes.
-- [Sitemap](https://iced-latte.com/sitemap.xml): Canonical URL index.
+## core pages
+- [homepage & profile](https://iced-latte.com/): overview of april's background, marketing craft, tiny ai builds, and contact details.
+- [rss feed](https://iced-latte.com/rss.xml): xml feed of published essays and working notes.
+- [sitemap](https://iced-latte.com/sitemap.xml): canonical url index.
 
-## Writing & Working Notes
-- [The 90-9-1 Rule: Moving from Consuming to Building](https://iced-latte.com/writing/90-9-1-from-consuming-to-building/): Why I decided to stop just consuming content on the internet and start building tiny projects of my own with AI. (Markdown: https://iced-latte.com/posts/90-9-1-from-consuming-to-building.md)
-- [Why I’m Moving from Marketing Craft into Marketing Systems](https://iced-latte.com/writing/craft-meets-marketing-systems/): Plenty of people can pull a number. Fewer can say what marketing should do because of it. (Markdown: https://iced-latte.com/posts/craft-meets-marketing-systems.md)
+## writing & working notes
+- [the 90-9-1 rule: moving from consuming to building](https://iced-latte.com/writing/90-9-1-from-consuming-to-building/): why i decided to stop just consuming content on the internet and start building tiny projects of my own with ai. (markdown: https://iced-latte.com/posts/90-9-1-from-consuming-to-building.md)
+- [why i’m moving from marketing craft into marketing systems](https://iced-latte.com/writing/craft-meets-marketing-systems/): plenty of people can pull a number. fewer can say what marketing should do because of it. (markdown: https://iced-latte.com/posts/craft-meets-marketing-systems.md)
 
-## Lab Projects
-- [Marketing Systems Lab](https://github.com/hanh-le-hong/marketing-systems-lab): Public repository practising measurement, KPI trees, AI fluency, and marketing automation.
-- [Snapcard](https://snapcard-dc0ca.web.app/): Lightweight web app for creating and sending digital postcards with a single link.
+## lab projects
+- [marketing systems lab](https://github.com/hanh-le-hong/marketing-systems-lab): public repository practising measurement, kpi trees, ai fluency, and marketing automation.
+- [snapcard](https://snapcard-dc0ca.web.app/): lightweight web app for creating and sending digital postcards with a single link.
 
-## Author & Contact
-- Name: April (Hanh Le / Le Hong Hanh)
-- Role: Marketer & Operator (M.S. in Marketing Management)
-- Email: drink@iced-latte.com
-- Upwork: https://www.upwork.com/freelancers/lehonghanh
-- LinkedIn: https://www.linkedin.com/in/hanhlehong/
-- GitHub: https://github.com/hanh-le-hong
+## author & contact
+- name: april (hanh le / le hong hanh)
+- role: marketer & operator (m.s. in marketing management)
+- email: drink@iced-latte.com
+- upwork: https://www.upwork.com/freelancers/lehonghanh
+- linkedin: https://www.linkedin.com/in/hanhlehong/
+- github: https://github.com/hanh-le-hong

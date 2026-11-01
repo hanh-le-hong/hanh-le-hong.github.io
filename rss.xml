@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AiPRIL | April (Hanh Le)</title>
+    <title>AiPRIL | april (hanh le)</title>
     <link>https://iced-latte.com/</link>
-    <description>Notes on marketing craft, marketing systems, product growth, and building tiny projects with AI.</description>
+    <description>notes on marketing craft, marketing systems, product growth, and building tiny projects with ai.</description>
     <language>en</language>
     <atom:link href="https://iced-latte.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The 90-9-1 Rule: Moving from Consuming to Building</title>
+      <title>the 90-9-1 rule: moving from consuming to building</title>
       <link>https://iced-latte.com/writing/90-9-1-from-consuming-to-building/</link>
       <guid isPermaLink="true">https://iced-latte.com/writing/90-9-1-from-consuming-to-building/</guid>
       <pubDate>Thu, 29 Oct 2026 00:00:00 +0000</pubDate>
-      <category>The Lab</category>
-      <description>Why I decided to stop just consuming content on the internet and start building tiny projects of my own with AI.</description>
+      <category>the lab</category>
+      <description>why i decided to stop just consuming content on the internet and start building tiny projects of my own with ai.</description>
     </item>
     <item>
-      <title>Why I’m Moving from Marketing Craft into Marketing Systems</title>
+      <title>why i’m moving from marketing craft into marketing systems</title>
       <link>https://iced-latte.com/writing/craft-meets-marketing-systems/</link>
       <guid isPermaLink="true">https://iced-latte.com/writing/craft-meets-marketing-systems/</guid>
       <pubDate>Wed, 28 Oct 2026 00:00:00 +0000</pubDate>
-      <category>The Craft</category>
-      <description>Plenty of people can pull a number. Fewer can say what marketing should do because of it.</description>
+      <category>the craft</category>
+      <description>plenty of people can pull a number. fewer can say what marketing should do because of it.</description>
     </item>
   </channel>
 </rss>
